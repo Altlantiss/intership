@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>乐享-实习管理平台</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+    <link href="../../assets/css/common/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../assets/css/common/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace-skins.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/global.css">
+    <link rel="stylesheet" href="../../assets/css/common/index.css">
+    <link rel="stylesheet" href="../../assets/css/common/daterangepicker-bs3.css">
+    <script src="../../assets/js/common/ace-extra.min.js"></script>
+    <script src="../../assets/js/common/html5shiv.js"></script>
+    <script src="../../assets/js/common/respond.min.js"></script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../../assets/js/common/jquery-2.0.3.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../../assets/js/jquery-1.10.2.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        if ("ontouchend" in document) document.write("<script src='../../assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    </script>
+    <script src="../../assets/js/common/jquery.cookie.js"></script>
+    <script src="../../assets/js/header.js"></script>
+    <script src="../../assets/js/sidebar.js"></script>
+    <script src="../../assets/js/jqGrid.js"></script>
+    <script src="../../assets/js/common/bootstrap.min.js"></script>
+    <script src="../../assets/js/common/typeahead-bs2.min.js"></script>
+    <script src="../../assets/js/common/jquery.dataTables.min.js"></script>
+    <script src="../../assets/js/common/jquery.dataTables.bootstrap.js"></script>
+    <script src="../../assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+    <script src="../../assets/js/jqGrid/i18n/grid.locale-en.js"></script>
+    <script src="../../assets/js/common/ace-elements.min.js"></script>
+    <script src="../../assets/js/common/ace.min.js"></script>
+    <script src="../../assets/js/date-time/daterangepicker.min.js"></script>
+    <script src="../../assets/js/date-time/moment.min.js"></script>
+    <script src="../../assets/js/function/cookie.js"></script>
+    <script src="../../assets/js/common/common.js"></script>
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default" id="navbar">
+
+    <div class="navbar-container" id="navbar-container"></div>
+
+</div>
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div class="sidebar" id="sidebar"></div>
+
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        通知公告
+                        <small>
+                            <i class="icon-double-angle-right"></i>
+                            收到的通知
+                        </small>
+                    </h1>
+                </div><!-- /.page-header -->
+
+                <div class="widget-header m-toolbar">
+                    <div class="widget-toolbar no-border pull-left">
+                        <ul class="nav nav-tabs f-pl10 center m-apply-nav" style="z-index:1;">
+                            <li class="">
+                                <a href="./recivedNotice.html">用户通知</a>
+                            </li>
+                            <li class="active">
+                                <a href="./receivedNoticeSystem.html">系统通知</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row f-pt20">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="m-row f-pr">
+                            <div class="col-sm-4 col-lg-4">
+                                <div class="m-tab">
+                                    <div class="m-tabcell align-right">
+                                        <label style="width:100px;padding-right:10px;">发送时间：</label>
+                                    </div>
+                                    <div class="m-tabcell f-width">
+                                        <div class="input-group f-width">
+									<span class="input-group-addon">
+										<i class=" icon-calendar"></i>
+									</span>
+                                            <input class="f-width " id="data-val" name="sendtime" value=" " type="text">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-2">
+                                <div class="m-tab">
+                                    <div class="m-tabcell ">
+                                        <label style="width:80px;">阅读状态：</label>
+                                    </div>
+                                    <div class="m-tabcell f-width ">
+                                        <select id="read_sta" class="f-width dark" style="font-size:14px;">
+                                            <option value="">全部</option>
+                                            <option value="0">未读</option>
+                                            <option value="1">已读</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="m-tab">
+                                    <div class="m-tabcell">
+                                        <label style="width:80px;">通知标题：</label>
+                                    </div>
+                                    <div class="m-tabcell f-width">
+                                        <input class="f-width u-h-30" id="student-keyword" name="title"
+                                               placeholder="输入通知标题进行搜索" type="text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-1 col-lg-1">
+                                <input class="u-btn u-h-30" id="btn-search" value="搜索" type="submit">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 信息表 -->
+                    <div class="col-sm-12">
+                        <table class="m-table m-table-mwidth" width="100%">
+                            <thead>
+                            <tr>
+                                <th>发送时间</th>
+                                <th>通知标题</th>
+                                <th>内容摘要</th>
+                                <th>发送人</th>
+                                <th>阅读状态</th>
+                                <!--<th>通知类型</th>-->
+                                <th style="width:170px;">操作</th>
+                            </tr>
+                            </tr>
+                            </thead>
+                            <tbody id="notice_list">
+
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colspan="2" class="align-left">
+                                    共有
+                                    <span id="total">
+
+                                    </span> 条,&nbsp;&nbsp;&nbsp;每页显示
+                                    <lable>
+                                        <select name="size" id="size">
+                                            <!--option用jq追加-->
+                                            <option value="15">15</option> <option value="25">25</option> <option value="50">50</option> <option value="100">100</option></select>
+                                    </lable>
+                                    条
+                                </td>
+                                <td colspan="5">
+                                    <!-- 分页 -->
+                                    <div id="page" class="align-right"><ul class="pagination" current-num="1"><li num="1" class="active"><a href="javascript:void(0)">1</a> </li><li num="2"> <a href="javascript:void(0)">2</a> </li><li num="3"> <a href="javascript:void(0)">3</a> </li><li num="4"> <a href="javascript:void(0)">4</a> </li><li num="5"> <a href="javascript:void(0)">5</a> </li><li num="6"> <a href="javascript:void(0)">6</a> </li><li num="7"> <a href="javascript:void(0)">7</a> </li><li num="8"> <a href="javascript:void(0)">8</a> </li><li num="2"><a href="javascript:void(0)"><i class="icon-double-angle-right"></i></a></li><ul></ul></ul></div>
+                                    <!--/ 分页 -->
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                        <!--/ 信息表 -->
+
+                    </div>
+                </div>
+
+
+            </div><!-- /.page-content -->
+
+            <!--删除通知弹窗 -->
+            <div style="display: none;" id="deletepopup" class="m-popup">
+                <div class="m-popup-box"
+                     style="width:420px; min-height:150px; max-height:500px;overflow:auto; margin-top:200px;">
+                    <h2>删除通知
+                        <a href="javascript:void(0)" class="pull-right bigger-170 s-c999" style="margin-right:20px;"
+                           onclick="closepopup()">×</a>
+                    </h2>
+                    <div class="col-sm-12 col-lg-12 m-orgtable">
+                        <p class="h5 bigger-125 f-pl40 f-pt10">确定删除此条通知？</p>
+
+                        <div class="f-tr f-pb10">
+                            <input id="dele-not" class="u-btn" value="确 定" type="submit" onclick="notice_delete(de_id)">&nbsp;&nbsp;
+                            <input class="u-btn u-btn-2 " value="取 消" type="submit" onclick="closepopup()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ 删除通知弹窗 -->
+
+            <script>
+                var datestar = "";
+                var dateend = "";
+                var tit = "";
+                var num = '1';
+                var total = '0';
+
+                function deletepopup(id) {
+                    $('#deletepopup').show();
+                    de_id = id;
+                }
+                function closepopup() {
+                    $('#deletepopup').hide();
+                }
+                // var today = new Date();
+                // beginday = today.getTime()-31 * 24 * 3600 * 1000;
+
+                $(function () {
+
+
+                    // 日历
+                    $('input[name="sendtime"]').daterangepicker({
+                        singleDatePicker: false,
+                        showDropdowns: false,
+                        // startDate: new Date(beginday),
+                        // endDate: new Date(),
+                        // maxDate: new Date(),
+                        locale: {
+                            daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+                            monthNames: ['一月', '二月', '三月', '四月', '五月', '六月',
+                                '七月', '八月', '九月', '十月', '十一月', '十二月'],
+                            firstDay: 1
+                        }
+                    });
+                    // 点击取消时清空日期
+                    $('input[name="sendtime"]').on('cancel.daterangepicker', function (ev, picker) {
+                        $('input[name="sendtime"]').val('');
+                        datestar = '';
+                        dateend = '';
+                        //getPageSearch(tit, datestar, dateend, 1, page_size);
+                    });
+
+                    //选择日期获取详情表
+                    $('input[name="sendtime"]').on('apply.daterangepicker', function (ev, picker) {
+                        datestar = picker.startDate.format('YYYY/MM/DD');
+                        dateend = picker.endDate.format('YYYY/MM/DD');
+                        //getPageSearch(tit, datestar, dateend, 1, page_size);
+                    });
+
+                });
+
+
+                var data = {
+                    "code":20000,
+                    "message":"成功",
+                    "run_execute_time":"0.0069s",
+                    "data":{
+                        "list":[
+                            {
+                                "notification_id":"2241554",
+                                "title":"签到预警提醒",
+                                "content":"签到预警提醒: 会计类14高会罗娜已经连续3天未签到，请尽快联系该学生。",
+                                "type":"12",
+                                "create":"1511751608",
+                                "extra":"null",
+                                "sender_name":"系统",
+                                "portrait":null,
+                                "read":"1",
+                                "like":"0"
+                            },
+                            {
+                                "notification_id":"2229411",
+                                "title":"签到预警提醒",
+                                "content":"签到预警提醒: 幼儿教育类14高幼廖兰琴已经连续3天未签到，请尽快联系该学生。",
+                                "type":"12",
+                                "create":"1511665208",
+                                "extra":"null",
+                                "sender_name":"系统",
+                                "portrait":null,
+                                "read":"1",
+                                "like":"0"
+                            },
+                            {
+                                "notification_id":"2176926",
+                                "title":"签到预警提醒",
+                                "content":"签到预警提醒: 会计类14高会黄芳已经连续5天未签到，请尽快联系该学生。",
+                                "type":"12",
+                                "create":"1511146808",
+                                "extra":"null",
+                                "sender_name":"系统",
+                                "portrait":null,
+                                "read":"1",
+                                "like":"0"
+                            },
+                            {
+                                "notification_id":"2164016",
+                                "title":"签到预警提醒",
+                                "content":"签到预警提醒: 会计类14高会黄芳已经连续3天未签到，请尽快联系该学生。",
+                                "type":"12",
+                                "create":"1510974007",
+                                "extra":"null",
+                                "sender_name":"系统",
+                                "portrait":null,
+                                "read":"1",
+                                "like":"0"
+                            },
+                            {
+                                "notification_id":"2142821",
+                                "title":"签到预警提醒",
+                                "content":"签到预警提醒: 幼儿教育类14高幼廖春英已经连续3天未签到，请尽快联系该学生。",
+                                "type":"12",
+                                "create":"1510628408",
+                                "extra":"null",
+                                "sender_name":"系统",
+                                "portrait":null,
+                                "read":"1",
+                                "like":"0"
+                            },
+                            {
+                                "notification_id":"2129877",
+                                "title":"签到预警提醒",
+                                "content":"签到预警提醒: 会计类14高会杨琳瑄已经连续3天未签到，请尽快联系该学生。",
+                                "type":"12",
+                                "create":"1510455608",
+                                "extra":"null",
+                                "sender_name":"系统",
+                                "portrait":null,
+                                "read":"1",
+                                "like":"0"
+                            },
+                            {
+                                "notification_id":"2125293",
+                                "title":"签到预警提醒",
+                                "content":"签到预警提醒: 会计类14高会黄芳已经连续5天未签到，请尽快联系该学生。",
+                                "type":"12",
+                                "create":"1510369206",
+                                "extra":"null",
+                                "sender_name":"系统",
+                                "portrait":null,
+                                "read":"1",
+                                "like":"0"
+                            },
+                            {
+                                "notification_id":"2115499",
+                                "title":"签到预警提醒",
+                                "content":"签到预警提醒: 会计类14高会黄芳已经连续3天未签到，请尽快联系该学生。",
+                                "type":"12",
+                                "create":"1510196407",
+                                "extra":"null",
+                                "sender_name":"系统",
+                                "portrait":null,
+                                "read":"1",
+                                "like":"0"
+                            },
+                            {
+                                "notification_id":"2094010",
+                                "title":"签到预警提醒",
+                                "content":"签到预警提醒: 幼儿教育类14高幼廖兰琴已经连续5天未签到，请尽快联系该学生。",
+                                "type":"12",
+                                "create":"1509937207",
+                                "extra":"null",
+                                "sender_name":"系统",
+                                "portrait":null,
+                                "read":"1",
+                                "like":"0"
+                            },
+                            {
+                                "notification_id":"2082197",
+                                "title":"签到预警提醒",
+                                "content":"签到预警提醒: 幼儿教育类14高幼廖兰琴已经连续3天未签到，请尽快联系该学生。",
+                                "type":"12",
+                                "create":"1509764406",
+                                "extra":"null",
+                                "sender_name":"系统",
+                                "portrait":null,
+                                "read":"1",
+                                "like":"0"
+                            },
+                            {
+                                "notification_id":"2065775",
+                                "title":"签到预警提醒",
+                                "content":"签到预警提醒: 机电类15机电胡龙强已经连续3天未签到，请尽快联系该学生。",
+                                "type":"12",
+                                "create":"1509418806",
+                                "extra":"null",
+                                "sender_name":"系统",
+                                "portrait":null,
+                                "read":"1",
+                                "like":"0"
+                            },
+                            {
+                                "notification_id":"2062468",
+                                "title":"签到预警提醒",
+                                "content":"签到预警提醒: 幼儿教育类14高幼郑婷已经连续5天未签到，请尽快联系该学生。",
+                                "type":"12",
+                                "create":"1509332407",
+                                "extra":"null",
+                                "sender_name":"系统",
+                                "portrait":null,
+                                "read":"1",
+                                "like":"0"
+                            },
+                            {
+                                "notification_id":"2055592",
+                                "title":"签到预警提醒",
+                                "content":"签到预警提醒: 幼儿教育类14高幼郑婷已经连续3天未签到，请尽快联系该学生。",
+                                "type":"12",
+                                "create":"1509159607",
+                                "extra":"null",
+                                "sender_name":"系统",
+                                "portrait":null,
+                                "read":"1",
+                                "like":"0"
+                            },
+                            {
+                                "notification_id":"2048654",
+                                "title":"签到预警提醒",
+                                "content":"签到预警提醒: 会计类14高会罗娜已经连续5天未签到，请尽快联系该学生。",
+                                "type":"12",
+                                "create":"1508986806",
+                                "extra":"null",
+                                "sender_name":"系统",
+                                "portrait":null,
+                                "read":"1",
+                                "like":"0"
+                            },
+                            {
+                                "notification_id":"2044208",
+                                "title":"签到预警提醒",
+                                "content":"签到预警提醒: 会计类14高会黄芳已经连续3天未签到，请尽快联系该学生。",
+                                "type":"12",
+                                "create":"1508900407",
+                                "extra":"null",
+                                "sender_name":"系统",
+                                "portrait":null,
+                                "read":"1",
+                                "like":"0"
+                            }
+                        ],
+                        "count":"112",
+                        "page_no":"1",
+                        "page_size":"15"
+                    }
+                };
+
+                if (data['code'] == '20000') {
+                    list = '';
+                    if (data.data == null) {
+                        data.data = '';
+                        removeload();
+                    }
+                    if (data.data.count) {
+                        total = data.data.count;
+                        $('#total').html(total);
+                    }
+                    var json = data.data.list;
+                    if (json) {
+                        var s_time = '';
+                        $.each(json, function (i, item) {
+                            if (item.create !== null) {
+                                s_time = getTimeByTimestamp(item.create);
+                            }
+                            list += "<tr><td>" + s_time + "</td>";
+                            list += "<td class='tit'>" + returnnull(item.title) + "</td>";
+                            list += "<td class='cont'>" + returnnull(item.content) + "</td>";
+                            list += "<td>" + returnnull(item.read) + "</td>";
+                            list += "<td>{0}&nbsp;&nbsp;{1}&nbsp;&nbsp;{2}</td></tr>".format(
+                                "<a href='javascript:void(0)' onclick=\"btnurl('notice-detail&no_id=" + item.notification_id + "')\"'>查看详情</a>",
+                                "<a href='javascript:void(0)' onclick=\"btnurl('notice-edit&notice_id=" + item.notification_id + "')\"'>修改</a>",
+                                "<a href='javascript:void(0)' onclick='deletepopup(" + item.notification_id + ")'>删除</a>"
+                            );
+
+                        });
+                    }
+
+                    $('#notice_list').html(list);
+                    removeload();
+
+                } else {
+                    removeload();
+                    my_alert('提示(' + data['code'] + ')', data['message']);
+                }
+                //限制标题字数
+                $('.tit').each(function () {
+                    var maxwidth = 10;
+                    if ($(this).text().length > maxwidth) {
+                        $(this).text($(this).text().substring(0, maxwidth));
+                        $(this).html($(this).html() + '……');
+                    }
+                });
+                //限制内容字数
+                $('.cont').each(function () {
+                    var maxwidth = 30;
+                    if ($(this).text().length > maxwidth) {
+                        $(this).text($(this).text().substring(0, maxwidth));
+                        $(this).html($(this).html() + '……');
+                    }
+                });
+
+
+
+                //获取通知列表--------------------
+                /*function getPageSearch(title, start_time, end_time, page_no, page_size) {
+                    $.ax({
+                        url: apiurl('notification/sent'),
+                        type: 'GET',
+                        datatype: 'json',
+                        data: {
+                            title: title,
+                            start_time: start_time,
+                            end_time: end_time,
+                            page_no: page_no,
+                            page_size: page_size
+                        },
+                        success: function (data) {
+                            if (data['code'] == '20000') {
+                                list = '';
+                                if (data.data == null) {
+                                    data.data = '';
+                                    removeload();
+                                    return false;
+                                }
+                                if (data.data.count) {
+                                    total = data.data.count;
+                                    $('#total').html(total);
+                                }
+                                var json = data.data.list;
+                                if (json) {
+                                    var s_time = '';
+                                    $.each(json, function (i, item) {
+                                        if (item.create !== null) {
+                                            s_time = getTimeByTimestamp(item.create);
+                                        }
+                                        list += "<tr><td>" + s_time + "</td>";
+                                        list += "<td class='tit'>" + returnnull(item.title) + "</td>";
+                                        list += "<td class='cont'>" + returnnull(item.content) + "</td>";
+                                        list += "<td>" + returnnull(item.read) + "</td>";
+                                        list += "<td>{0}&nbsp;&nbsp;{1}&nbsp;&nbsp;{2}</td></tr>".format(
+                                            "<a href='javascript:void(0)' onclick=\"btnurl('notice-detail&no_id=" + item.notification_id + "')\"'>查看详情</a>",
+                                            "<a href='javascript:void(0)' onclick=\"btnurl('notice-edit&notice_id=" + item.notification_id + "')\"'>修改</a>",
+                                            "<a href='javascript:void(0)' onclick='deletepopup(" + item.notification_id + ")'>删除</a>"
+                                        );
+
+                                    });
+                                }
+
+                                $('#notice_list').html(list);
+                                removeload();
+
+                            } else {
+                                removeload();
+                                my_alert('提示(' + data['code'] + ')', data['message']);
+                                return false;
+                            }
+                            //限制标题字数
+                            $('.tit').each(function () {
+                                var maxwidth = 10;
+                                if ($(this).text().length > maxwidth) {
+                                    $(this).text($(this).text().substring(0, maxwidth));
+                                    $(this).html($(this).html() + '……');
+                                }
+                            });
+                            //限制内容字数
+                            $('.cont').each(function () {
+                                var maxwidth = 30;
+                                if ($(this).text().length > maxwidth) {
+                                    $(this).text($(this).text().substring(0, maxwidth));
+                                    $(this).html($(this).html() + '……');
+                                }
+                            });
+                            $('#page').html(page(data.data.page_no, data.data.page_size, data.data.count));
+
+                        }
+                    });
+                }*/
+                s_change_size(); //切换显示条数的函数
+                function s_change_size() {
+
+                    $('#size').append('<option value="15">15</option> <option value="25">25</option> <option value="50">50</option> <option value="100">100</option>')
+
+                    $('#size').change(function () {
+
+                        var opt = $('#size').val();
+                        if (opt == 15) {
+                            page_size = 15
+                            //getPageSearch(tit, datestar, dateend, 1, page_size);
+                        }
+                        if (opt == 25) {
+                            page_size = 25
+                            //getPageSearch(tit, datestar, dateend, 1, page_size);
+                        }
+                        if (opt == 50) {
+                            page_size = 50
+                            //getPageSearch(tit, datestar, dateend, 1, page_size);
+                        }
+                        if (opt == 100) {
+                            page_size = 100
+                            //getPageSearch(tit, datestar, dateend, 1, page_size);
+                        }
+                    })
+
+
+                }
+                var page_size = 15;
+                //getPageSearch(tit, datestar, dateend, 1, page_size);
+
+
+                // 标题搜索--------------
+
+
+                $('#btn-search').click(function () {
+                    tit = $('#student-keyword').val();
+                    //getPageSearch(tit, datestar, dateend, 1, page_size);
+                })
+
+                //回车键搜索
+                function mylist() {
+                    tit = $('#student-keyword').val();
+                    //getPageSearch(tit, datestar, dateend, 1, page_size);
+                }
+                key_list(mylist);
+
+
+                //分页
+                $(document).on('click', '#page ul li', function () {
+                    if ($(this).attr('num') == null) {
+                        return false;
+                    }
+                    num = $(this).attr('num');
+                    //获取列表
+                    //getPageSearch(tit, datestar, dateend, num, page_size);
+                });
+
+                /*//删除通知------------
+                 function notice_delete(id) {
+                 closepopup();
+                 $.ax({
+                 url: apiurl('notification/delete'),
+                 type: 'delete',
+                 dataType: 'json',
+                 data: {
+                 notification_id: id
+                 },
+                 success: function (ret_data) {
+
+                 removeload();
+                 if (ret_data['code'] != 20000) {
+                 my_alert('提示(' + ret_data['code'] + ')', '删除' + ret_data['message']);
+                 return false;
+                 } else {
+                 // my_alert('提示(' + ret_data['code'] + ')', '删除'+ret_data['message']);
+                 $('#notice_list').html('');
+                 getPageSearch(tit, datestar, dateend, 1, page_size);
+                 }
+                 }
+                 });
+                 }*/
+
+
+            </script>
+
+
+        </div><!-- /.main-content -->
+
+    </div><!-- /.main-container-inner -->
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div><!-- /.main-container -->
+
+
+<!-- inline scripts related to this page -->
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        var oTable1 = $('#sample-table-2').dataTable({
+            "aoColumns": [
+                {"bSortable": false},
+                null, null, null, null, null,
+                {"bSortable": false}
+            ]
+        });
+
+
+        $('table th input:checkbox').on('click', function () {
+            var that = this;
+            $(this).closest('table').find('tr > td:first-child input:checkbox')
+                .each(function () {
+                    this.checked = that.checked;
+                    $(this).closest('tr').toggleClass('selected');
+                });
+
+        });
+
+
+        $('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+        function tooltip_placement(context, source) {
+            var $source = $(source);
+            var $parent = $source.closest('table')
+            var off1 = $parent.offset();
+            var w1 = $parent.width();
+
+            var off2 = $source.offset();
+            var w2 = $source.width();
+
+            if (parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
+            return 'left';
+        }
+    })
+</script>
+
+</body>
+</html>
+

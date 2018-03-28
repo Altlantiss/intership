@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>乐享实习-教师管理</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+    <link href="../../assets/css/common/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../assets/css/common/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace-skins.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/global.css">
+    <link rel="stylesheet" href="../../assets/css/common/index.css">
+    <link rel="stylesheet" href="../../assets/css/common/daterangepicker-bs3.css">
+    <script src="../../assets/js/common/ace-extra.min.js"></script>
+    <script src="../../assets/js/common/html5shiv.js"></script>
+    <script src="../../assets/js/common/respond.min.js"></script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../../assets/js/common/jquery-2.0.3.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../../assets/js/jquery-1.10.2.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        if ("ontouchend" in document) document.write("<script src='../../assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    </script>
+    <script src="../../assets/js/common/jquery.cookie.js"></script>
+    <script src="../../assets/js/header.js"></script>
+    <script src="../../assets/js/sidebar.js"></script>
+    <script src="../../assets/js/jqGrid.js"></script>
+    <script src="../../assets/js/common/bootstrap.min.js"></script>
+    <script src="../../assets/js/common/typeahead-bs2.min.js"></script>
+    <script src="../../assets/js/common/jquery.dataTables.min.js"></script>
+    <script src="../../assets/js/common/jquery.dataTables.bootstrap.js"></script>
+    <script src="../../assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+    <script src="../../assets/js/jqGrid/i18n/grid.locale-en.js"></script>
+    <script src="../../assets/js/common/ace-elements.min.js"></script>
+    <script src="../../assets/js/common/ace.min.js"></script>
+    <script src="../../assets/js/date-time/daterangepicker.min.js"></script>
+    <script src="../../assets/js/date-time/moment.min.js"></script>
+    <script src="../../assets/js/function/cookie.js"></script>
+    <script src="../../assets/js/common/common.js"></script>
+
+    <script src="./roleManager.js"></script>
+</head>
+
+<body>
+
+<div class="navbar navbar-default" id="navbar">
+
+    <div class="navbar-container" id="navbar-container"></div>
+
+</div>
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div class="sidebar" id="sidebar"></div>
+
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        角色管理
+                    </h1>
+                </div><!-- /.page-header -->
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="m-row f-pr" style="margin-bottom: 5px;">
+                            <div class="col-sm-4 col-lg-4">
+                                <div class="m-tab">
+                                    <div class="m-tabcell">
+                                        <label style="width:80px;">角色名称：</label>
+                                    </div>
+                                    <div class="m-tabcell f-width">
+                                        <input class="f-width u-h-30" id="student-keyword" name="title"
+                                               placeholder="输入角色名称进行搜索" type="text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3 col-lg-3">
+                                <button class="btn-success u-btn u-h-30" id="btn-search" style="float:left;"><i
+                                        class="icon-search bigger-100"></i> 搜索
+                                </button>
+                                <button class="btn btn-info u-h-30 u-btn" onclick="open_add_teacher_dialog();"
+                                        style="float:left;margin-left: 5px;"><i class="icon-pencil bigger-100"></i> 新增角色
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <table id="grid-table"></table>
+
+                        <div id="grid-pager"></div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!--新增角色-->
+            <div id="add_teacher_dialog" class="m-popup" style="display: none">
+                <div class="m-popup-box"
+                     style="width:550px; height:285px;margin-top:50px;overflow: auto">
+                    <h2>新增角色
+                        <a href="javascript:void(0)" class="pull-right bigger-170 s-c999" style="margin-right:20px;"
+                           onclick="close_add_teacher_dialog()">×</a>
+                    </h2>
+                    <form id="add_group_form">
+                        <div class="col-sm-12 col-lg-12 m-orgtable">
+                            <label class="col-sm-3 col-lg-3" style="float:left;">角色名：</label>
+                            <input class="col-sm-6 col-lg-6" id="roleName" type="text">
+                        </div>
+                        <div class="col-sm-12 col-lg-12 m-orgtable">
+                            <label class="col-sm-3 col-lg-3" style="float:left;">角色代码：</label>
+                            <input class="col-sm-6 col-lg-6" id="roleCode" type="text">
+                        </div>
+
+                    </form>
+                    <div class="col-sm-12 col-lg-12 m-orgtable">
+                        <div class="f-tr f-pb10" style="padding-top: 20px;">
+                            <input id="makeSureSend" class="u-btn" value="确 定" onclick="add_groupTeacher();"
+                                   type="submit">&nbsp;&nbsp;
+                            <input id="clearSend" onclick="close_add_teacher_dialog();" class="u-btn u-btn-2 " value="取 消"
+                                   type="submit">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--编辑角色-->
+            <div id="group_update_dialog" class="m-popup" style="display: none">
+                <div class="m-popup-box"
+                     style="width:550px; height:325px;margin-top:50px;">
+                    <h2>编辑角色
+                        <a href="javascript:void(0)" class="pull-right bigger-170 s-c999" style="margin-right:20px;"
+                           onclick="close_update_dialog()">×</a>
+                    </h2>
+                    <form id="update_group_form">
+                        <div class="col-sm-12 col-lg-12 m-orgtable">
+                            <label class="col-sm-3 col-lg-3" style="float:left;">角色名：</label>
+                            <input class="col-sm-6 col-lg-6" id="editRoleName" type="text">
+                        </div>
+                        <div class="col-sm-12 col-lg-12 m-orgtable">
+                            <label class="col-sm-3 col-lg-3" style="float:left;">角色代码：</label>
+                            <input class="col-sm-6 col-lg-6" id="editRoleCode" type="text">
+                        </div>
+                    </form>
+                    <div class="col-sm-12 col-lg-12 m-orgtable">
+                        <div class="f-tr f-pb10" style="padding-top: 20px;">
+                            <input class="u-btn" value="确 定" onclick="update_groupTeacher();" type="submit">&nbsp;&nbsp;
+                            <input onclick="close_update_dialog();" class="u-btn u-btn-2 " value="取 消" type="submit">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--角色权限-->
+            <div id="role_update_dialog" class="m-popup" style="display: none">
+                <div class="m-popup-box"
+                     style="width:700px; height:525px;margin-top:50px;">
+                    <h2>查看角色权限
+                        <a href="javascript:void(0)" class="pull-right bigger-170 s-c999" style="margin-right:20px;"
+                           onclick="close_role_box()">×</a>
+                    </h2>
+
+                    <div class="col-sm-12 col-lg-12 m-orgtable" style="width: 100%;height: 400px;">
+                        <label class="col-sm-3 col-lg-3" style="float:left;">角色权限：</label>
+                        <ul class="col-sm-12 col-lg-12" id="perMission" style="width: 100%;height: 350px ;border:1px solid #CCCCCC ;overflow: auto">
+
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-12 col-lg-12 m-orgtable">
+                        <div class="f-tr f-pb10" style="padding-top: 20px;">
+                            <select class="col-sm-5 col-lg-5" name="rolePermission" id="rolePermission" style="float: left;visibility: hidden"></select>
+                            <input onclick="allPermission();" class="u-btn " value="增加权限" type="submit" style="float: left;margin-left:20px;">
+                            <input class="u-btn" id="PermissionAddOk" value="确 定" onclick="addPermission();" type="submit" style="visibility: hidden">&nbsp;&nbsp;
+                            <input onclick="close_role_box();" class="u-btn u-btn-2 " value="取 消" type="submit">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.main-content -->
+
+    </div><!-- /.main-container-inner -->
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div>
+
+</body>
+</html>
+

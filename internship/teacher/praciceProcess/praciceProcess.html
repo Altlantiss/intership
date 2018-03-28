@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>乐享-实习管理平台</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+    <link href="../../assets/css/common/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../assets/css/common/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace-skins.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/global.css">
+    <link rel="stylesheet" href="../../assets/css/common/index.css">
+    <link rel="stylesheet" href="../../assets/css/common/daterangepicker-bs3.css">
+    <script src="../../assets/js/common/ace-extra.min.js"></script>
+    <script src="../../assets/js/common/html5shiv.js"></script>
+    <script src="../../assets/js/common/respond.min.js"></script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../../assets/js/common/jquery-2.0.3.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../../assets/js/jquery-1.10.2.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        if ("ontouchend" in document) document.write("<script src='../../assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    </script>
+    <script src="../../assets/js/common/jquery.cookie.js"></script>
+    <script src="../../assets/js/header.js"></script>
+    <script src="../../assets/js/sidebar.js"></script>
+    <script src="../../assets/js/jqGrid.js"></script>
+    <script src="../../assets/js/common/bootstrap.min.js"></script>
+    <script src="../../assets/js/common/typeahead-bs2.min.js"></script>
+    <script src="../../assets/js/common/jquery.dataTables.min.js"></script>
+    <script src="../../assets/js/common/jquery.dataTables.bootstrap.js"></script>
+    <script src="../../assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+    <script src="../../assets/js/jqGrid/i18n/grid.locale-en.js"></script>
+    <script src="../../assets/js/common/ace-elements.min.js"></script>
+    <script src="../../assets/js/common/ace.min.js"></script>
+    <script src="../../assets/js/date-time/daterangepicker.min.js"></script>
+    <script src="../../assets/js/date-time/moment.min.js"></script>
+    <script src="../../assets/js/function/cookie.js"></script>
+    <script src="../../assets/js/common/common.js"></script>
+
+    <!--<script src="./notice.js"></script>-->
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default" id="navbar">
+
+    <div class="navbar-container" id="navbar-container"></div>
+
+</div>
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div class="sidebar" id="sidebar"></div>
+
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        实习过程管理
+                    </h1>
+                </div><!-- /.page-header -->
+
+
+                <div class="row f-pt20">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="m-row f-pr">
+                            <div class="col-sm-4 col-lg-4">
+                                <div class="m-tab">
+                                    <div class="m-tabcell align-right">
+                                        <label style="width:100px;padding-right:10px;">发送时间：</label>
+                                    </div>
+                                    <div class="m-tabcell f-width">
+                                        <div class="input-group f-width">
+									<span class="input-group-addon">
+										<i class=" icon-calendar"></i>
+									</span>
+                                            <input class="f-width " id="data-val" name="sendtime" value=" " type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-lg-4">
+                                <div class="m-tab">
+                                    <div class="m-tabcell">
+                                        <label style="width:80px;">通知标题：</label>
+                                    </div>
+                                    <div class="m-tabcell f-width">
+                                        <input class="f-width u-h-30" id="student-keyword" name="title"
+                                               placeholder="输入通知标题进行搜索" type="text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-1 col-lg-1">
+                                <input class="u-btn u-h-30" id="btn-search" value="搜索" type="submit">
+                            </div>
+                            <div class="f-part" style="right:12px;">
+                                <input class="u-btn u-h-30" value="发送通知" type="submit" id="sendNoticeBtn">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 信息表 -->
+                    <div class="col-sm-12 col-lg-12">
+                        <table class="m-table m-table-mwidth" width="100%">
+                            <thead>
+                            <tr>
+                                <th>发送时间</th>
+                                <th>通知标题</th>
+                                <th>内容摘要</th>
+                                <th>阅读量</th>
+                                <th style="width:170px;">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="notice_list">
+
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colspan="2" class="align-left">
+                                    共有 <span id="total">1</span> 条,&nbsp;&nbsp;&nbsp;每页显示
+                                    <lable>
+                                        <select name="size" id="size">
+                                            <!--option用jq追加-->
+                                            <option value="15">15</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                        </select>
+                                    </lable>
+                                    条
+                                </td>
+                                <td colspan="4">
+                                    <!-- 分页 -->
+                                    <div id="page" class="align-right">
+                                        <ul class="pagination" current-num="1">
+                                            <ul>
+
+                                            </ul>
+                                        </ul>
+                                    </div>
+                                    <!--/ 分页 -->
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                        <!--/ 信息表 -->
+                    </div>
+                </div>
+            </div><!-- /.page-content -->
+
+            <!--删除通知弹窗 -->
+            <div style="display: none;" id="deletepopup" class="m-popup">
+                <div class="m-popup-box"
+                     style="width:420px; min-height:150px; max-height:500px;overflow:auto; margin-top:200px;">
+                    <h2>删除通知
+                        <a href="javascript:void(0)" class="pull-right bigger-170 s-c999" style="margin-right:20px;"
+                           onclick="closepopup()">×</a>
+                    </h2>
+                    <div class="col-sm-12 col-lg-12 m-orgtable">
+                        <p class="h5 bigger-125 f-pl40 f-pt10">确定删除此条通知？</p>
+
+                        <div class="f-tr f-pb10">
+                            <input id="dele-not" class="u-btn" value="确 定" type="submit" onclick="notice_delete(de_id)">&nbsp;&nbsp;
+                            <input class="u-btn u-btn-2 " value="取 消" type="submit" onclick="closepopup()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ 删除通知弹窗 -->
+
+            <!--发送通知弹窗 -->
+            <div id="sendNotice" class="m-popup" style="display: none">
+                <div class="m-popup-box"
+                     style="width:420px; min-height:150px; max-height:500px;overflow:auto; margin-top:200px;">
+                    <h2>发送通知
+                        <a href="javascript:void(0)" class="pull-right bigger-170 s-c999" style="margin-right:20px;"
+                           id="closeSendNotice">×</a>
+                    </h2>
+                    <div class="col-sm-12 col-lg-12 m-orgtable">
+                        <div class="form-group" style="height: 28px">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 通知标题 </label>
+
+                            <div class="col-sm-9">
+                                <input type="text" id="form-field-1" placeholder="请输入通知标题" class="col-xs-12 col-sm-12" />
+                            </div>
+                        </div>
+
+                        <div class="space-4"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 通知内容 </label>
+
+                            <div class="col-sm-9">
+                                <textarea class="form-control f-mb10" id="form-field-2" cols="30" rows="10" maxlength="50" placeholder="请输入通知内容"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="space-4"></div>
+
+                        <div class="f-tr f-pb10">
+                            <input id="makeSureSend" class="u-btn" value="确 定" type="submit">&nbsp;&nbsp;
+                            <input id="clearSend" class="u-btn u-btn-2 " value="取 消" type="submit">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ 发送通知弹窗 -->
+
+            <!--发送通知成功弹窗 --><!--提醒发送内容不能为空-->
+            <div style="display: none;" id="makeSureNotice" class="m-popup">
+                <div class="m-popup-box"
+                     style="width:420px; min-height:150px; max-height:500px;overflow:auto; margin-top:200px;">
+                    <div style="font-size: 20px;margin:40px 50px 20px" id="sendContent"></div>
+                    <input id="makeSureNoticeBtn" class="u-btn f-mr20" value="确 定" type="submit" style="float: right">
+                </div>
+            </div>
+            <!--/ 发送通知成功弹窗 --><!--提醒发送内容不能为空-->
+
+        </div><!-- /.main-content -->
+
+    </div><!-- /.main-container-inner -->
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div><!-- /.main-container -->
+
+
+<!-- inline scripts related to this page -->
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        var oTable1 = $('#sample-table-2').dataTable({
+            "aoColumns": [
+                {"bSortable": false},
+                null, null, null, null, null,
+                {"bSortable": false}
+            ]
+        });
+
+
+        $('table th input:checkbox').on('click', function () {
+            var that = this;
+            $(this).closest('table').find('tr > td:first-child input:checkbox')
+                .each(function () {
+                    this.checked = that.checked;
+                    $(this).closest('tr').toggleClass('selected');
+                });
+
+        });
+
+
+        $('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+        function tooltip_placement(context, source) {
+            var $source = $(source);
+            var $parent = $source.closest('table')
+            var off1 = $parent.offset();
+            var w1 = $parent.width();
+
+            var off2 = $source.offset();
+            var w2 = $source.width();
+
+            if (parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
+            return 'left';
+        }
+    })
+</script>
+
+</body>
+</html>
+

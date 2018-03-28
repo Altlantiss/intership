@@ -1,0 +1,78 @@
+html,body,div,input,a{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+.all{
+    width: 80%;
+    height: 500px;
+    margin:100px auto;
+    padding:50px 0;
+    background-color: #eeeeee;
+    box-shadow: 3px 2px 5px 1px rgba(0,0,0,0.2);
+}
+.forget{
+    width: 50%;
+    height: 400px;
+    margin:0 auto;
+    background-color: #ffffff;
+}
+.forget .head{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    color: #0b6cbc;
+}
+.forget .form{
+    width: 100%;
+    height: 300px;
+    margin-top: 50px;
+}
+.forget .form ul{
+    width: 100%;
+    height: 100%;
+}
+.forget .form ul li{
+    /*width: 100%;*/
+    padding: 0 50px;
+    height: 60px;
+}
+.forget .form ul .btn{
+    width: 100%;
+    padding: 0 50px;
+    height: 40px;
+}
+.forget .form ul .chance a{
+    border-color: #0b6cbc;
+    background-color: #0b6cbc;
+    color: #ffffff;
+}
+.forget .form ul li .left{
+    float: left;
+    width: 30%;
+    /*text-align: right;*/
+}
+.forget .form ul li .right{
+    width: 70%;
+    height: 30px;
+    float: right;
+    background-color: #f1f1f1;
+    padding-left: 20px;
+ }
+.forget .form ul li a{
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    text-align: center;
+    color: #4874b0;
+    display: block;
+    margin: 0 auto;
+}

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>乐享-实习管理平台</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+    <link href="../assets/css/common/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../assets/css/common/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../assets/css/common/ace.min.css"/>
+    <link rel="stylesheet" href="../assets/css/common/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="../assets/css/common/ace-skins.min.css"/>
+    <link rel="stylesheet" href="../assets/css/common/global.css">
+    <link rel="stylesheet" href="../assets/css/common/index.css">
+    <link rel="stylesheet" href="../assets/css/common/daterangepicker-bs3.css">
+    <script src="../assets/js/common/ace-extra.min.js"></script>
+    <script src="../assets/js/common/html5shiv.js"></script>
+    <script src="../assets/js/common/respond.min.js"></script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../assets/js/common/jquery-2.0.3.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../assets/js/jquery-1.10.2.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        if ("ontouchend" in document) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    </script>
+    <script src="../assets/js/common/jquery.cookie.js"></script>
+    <script src="../assets/js/function/cookie.js"></script>
+    <script src="../assets/js/header.js"></script>
+    <script src="../assets/js/student_sidebar.js"></script>
+    <script src="../assets/js/common/bootstrap.min.js"></script>
+    <script src="../assets/js/common/typeahead-bs2.min.js"></script>
+    <script src="../assets/js/common/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/common/jquery.dataTables.bootstrap.js"></script>
+    <script src="../assets/js/common/ace-elements.min.js"></script>
+    <script src="../assets/js/common/ace.min.js"></script>
+    <script src="../assets/js/date-time/daterangepicker.min.js"></script>
+    <script src="../assets/js/date-time/moment.min.js"></script>
+    <script src="../assets/js/common.js"></script>
+    <script src="../assets/js/common/common.js"></script>
+    <script src="../assets/js/common/dateFormat.js"></script>
+</head>
+<style>
+    .tab_w_01 table {
+        border: 1px solid #e0e0e0;
+    }
+
+    .tab_w_01 th {
+        background: #f1f1f1;
+        height: 30px;
+        padding-right: 20px;
+        width: 200px;
+        text-align: right;
+    }
+
+    .tab_w_01 td {
+        padding-left: 20px;
+    }
+
+    .tab_w_label {
+        width: 400px;
+        margin: 30px auto;
+        padding: 0;
+        text-align: center;
+    }
+
+    .tab_w_label input {
+        margin: 10px auto;
+    }
+</style>
+<body>
+<div class="navbar navbar-default" id="navbar">
+    <div class="navbar-container" id="navbar-container"></div>
+</div>
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div class="sidebar" id="sidebar"></div>
+
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        个人资料
+                    </h1>
+                </div><!-- /.page-header -->
+
+
+                <div class="row f-pt20">
+
+                    <!-- 信息表 -->
+                    <div class="col-sm-12 col-lg-12 tab_w_01">
+                        <table width="60%" border="1" align="center" cellpadding="0" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <td id="t_studentname"></td>
+                            </tr>
+                            <tr>
+                                <th>性别</th>
+                                <td id="t_sex"></td>
+                            </tr>
+                            <tr>
+                                <th>生日</th>
+                                <td id="t_birthday"></td>
+                            </tr>
+                            <tr>
+                                <th>民族</th>
+                                <td id="t_nation"></td>
+                            </tr>
+                            <tr>
+                                <th>学号</th>
+                                <td id="t_num"></td>
+                            </tr>
+                            <tr>
+                                <th>班级</th>
+                                <td id="t_class"></td>
+                            </tr>
+                            <tr>
+                                <th>专业</th>
+                                <td id="t_major"></td>
+                            </tr>
+                            <tr>
+                                <th>系部</th>
+                                <Td id="t_depart"></Td>
+                            </tr>
+                            <Tr>
+
+                                <th>入学年份</th>
+                                <Td id="t_inschool"></Td>
+                            </Tr>
+                            <tr>
+                                <th>毕业年份</th>
+                                <td id="t_outschool">2010年</td>
+                            </tr>
+                            <tr>
+                                <th>邮箱</th>
+                                <td id="t_email">wanghy@126.com</td>
+                            </tr>
+                            <tr>
+                                <th>手机</th>
+                                <td id="t_tel">185583920-9</td>
+                            </tr>
+
+                            </thead>
+
+                        </table>
+                    </div>
+
+                    <div class="col-sm-12 col-lg-12 tab_w_01" style="clear:both;">
+                        <table width="60%" border="1" align="center" cellpadding="0" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>指导老师</th>
+                                <td id="t_teacher"></td>
+                            </tr>
+                            <tr>
+                                <th>实习单位</th>
+                                <td id="t_enterprise"></td>
+                            </tr>
+                            <tr>
+                                <th>实习职位</th>
+                                <!--                                <th>组织机构代码</th><th>实习地址</th>
+                                -->
+                                <td id="t_job"></td>
+                                <!--   <th>入职的时间</th>
+                                   <th>结束时间</th>
+                                   <th>操作</th>-->
+                            </tr>
+                            <tr>
+                                <th>入职时间</th>
+                                <td id="t_inprisedate"></td>
+                            </tr>
+                            <tr>
+                                <th>结束日期</th>
+                                <td id="t_endprisedate"></td>
+                            </tr>
+                            <tr>
+                                <th>成绩</th>
+                                <td id="t_mark"></td>
+                            </tr>
+
+                            </thead>
+
+                        </table>
+                        <!--/ 信息表 -->
+                    </div>
+
+                </div>
+
+            </div><!-- /.page-content -->
+        </div><!-- /.main-content -->
+
+    </div><!-- /.main-container-inner -->
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div><!-- /.main-container -->
+
+
+<script type="text/javascript">
+    var myclass;
+    var major;
+    var depart;
+    jQuery(document).ready(function(){
+
+    	$.ajax({
+	        type: "GET",  //提交方式
+	        beforeSend: function (request) {
+	            request.setRequestHeader("token", cookie.get("token"));
+	        },
+	        url: apiUrl + "mobile/student/studentInfo",//路径
+	        success: function (data) {//返回数据根据结果进行相应的处理
+	        	
+	        	if(data.code == 0){
+	        		var userinfo = data.data;
+	        		var studentInfo = userinfo.student;
+	        		var practice = userinfo.practice;
+	        		jQuery("#t_studentname").html(studentInfo.name);
+	        		jQuery("#t_sex").html(studentInfo.sex);
+	        		jQuery("#t_birthday").html(new Date(studentInfo.birth).Format("yyyy-MM-dd"));
+	        		jQuery("#t_nation").html(studentInfo.nation);
+	        		jQuery("#t_num").html(studentInfo.userNo);
+	        		jQuery("#t_class").html(studentInfo.className);
+	        		jQuery("#t_major").html(studentInfo.majorName);
+	        		jQuery("#t_depart").html(studentInfo.departName);
+	        		jQuery("#t_inschool").html(studentInfo.joinDate);
+	        		jQuery("#t_outschool").html(studentInfo.leaveDate);
+	        		jQuery("#t_email").html(studentInfo.email);
+	        		jQuery("#t_tel").html(studentInfo.tel);
+	        		
+	        		jQuery("#t_enterprise").html(practice.enterprise);
+	        		jQuery("#t_teacher").html(practice.teacherName);
+	        		jQuery("#t_job").html(practice.job);
+	        		jQuery("#t_inprisedate").html(practice.startDate);
+	        		jQuery("#t_endprisedate").html(practice.endDate);
+	        		jQuery("#t_mark").html(practice.summaryReport);
+
+
+	        	}else{
+	        	    alert("获取学生信息失败")
+                }
+	        },
+            error:function(err){
+	            alert("获取学生信息出错")
+            }
+	    });
+
+    	
+    });
+    
+</script>
+
+</body>
+</html>
+

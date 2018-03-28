@@ -1,0 +1,46 @@
+.approvalDiv {
+    background: #F1F6F9;
+    width: 300px;
+    margin: 10px auto;
+    padding: 10px 0 20px 10px;
+    height: 90px;
+}
+.approvalDiv>div {
+    line-height: 20px;
+}
+.inApproval {
+    color: #FCA45F;
+}
+.remindApproval {
+    color: #6A9DD1;
+}
+.approvalTitle {
+    height: 20px;
+    line-height: 20px;
+    border-left: 2px solid #4C7EAA;
+    padding-left: 5px;
+    margin: 10px;
+    font-size: 16px;
+}
+.approvalOption {
+    width: 326px;
+    margin: 10px auto;
+}
+.detailBtn {
+    width: 300px;
+    margin: 10px auto;
+}
+.approvalPopupTitle {
+    font-size: 16px;
+    height: 30px;
+}
+.approvalPopupTitle span:nth-child(1) {
+    float: left;
+    margin-left: 20px;
+}
+.approvalPopupTitle span:nth-child(2) {
+    float: right;
+    margin-right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+}

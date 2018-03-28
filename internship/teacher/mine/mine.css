@@ -1,0 +1,68 @@
+html,body{
+    height: 100%;
+    position: relative;
+}
+#person-box{
+    position: relative;
+}
+#person-img{
+    width: 200px;
+    height: 200px;
+    display: block;
+    position: absolute;
+    top: 150px;
+    left: 13%;
+    cursor: pointer;
+}
+.mine-text{
+    width: 80%;
+    height: 600px;
+    padding: 30px 10px 30px 250px;
+    margin: 0 auto;
+    border: 1px solid #CCCCCC;
+}
+.mine-text li{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #CCCCCC;
+}
+.mine-text li .left{
+    width: 90px;
+    float: left;
+    margin: 0 0 0 50px;
+    font-size: 16px;
+}
+.mine-text li .right{
+    float: left;
+    margin: 0 0 0 100px;
+    font-size: 14px;
+    color: #646464;
+    font-weight: 600;
+}
+#upload{
+    display: block;
+    float: left;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 20px;
+    position: relative;
+    cursor: pointer;
+}
+#upload:hover{
+    color: #ffffff;
+}
+#upload-chance{
+    float: left;
+}
+#upload-file{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    opacity: 0;
+    cursor: pointer;
+}
+

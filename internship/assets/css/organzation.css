@@ -1,0 +1,15 @@
+.addBtn {
+    height: 24px;
+    line-height: 24px;
+    width: 90px;
+    background: #428bca;
+    color: #fff;
+    margin-left: 26px;
+    cursor: pointer;
+}
+.addBtn:hover {
+    background: #1b6aaa;
+}
+#notice_list tr,#profession_notice_list tr,#class_notice_list tr{
+    cursor: pointer;
+}

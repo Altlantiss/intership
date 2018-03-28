@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>乐享实习-实习管理平台</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+    <!--<link href="../assets/css/common/bootstrap.min.css" rel="stylesheet"/>-->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/common/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../assets/css/common/ace.min.css"/>
+    <link rel="stylesheet" href="../assets/css/common/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="../assets/css/common/ace-skins.min.css"/>
+    <link rel="stylesheet" href="../assets/css/common/global.css">
+    <link rel="stylesheet" href="../assets/css/common/index.css">
+    <!--<link rel="stylesheet" href="../assets/css/common/daterangepicker-bs3.css">-->
+    <link href="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.25/daterangepicker.css" rel="stylesheet">
+
+    <script src="../assets/js/common/ace-extra.min.js"></script>
+    <script src="../assets/js/common/html5shiv.js"></script>
+    <script src="../assets/js/common/respond.min.js"></script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../assets/js/common/jquery-2.0.3.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../assets/js/jquery-1.10.2.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        if ("ontouchend" in document) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    </script>
+    <script src="../assets/js/common/jquery.cookie.js"></script>
+    <script src="../assets/js/function/cookie.js"></script>
+    <script src="../assets/js/header.js"></script>
+    <script src="../assets/js/student_sidebar.js"></script>
+    <script src="../assets/js/common/bootstrap.min.js"></script>
+    <script src="../assets/js/common/typeahead-bs2.min.js"></script>
+    <script src="../assets/js/common/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/common/jquery.dataTables.bootstrap.js"></script>
+    <script src="../assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+	<script src="../assets/js/jqGrid/i18n/grid.locale-en.js"></script>
+    <script src="../assets/js/common/ace-elements.min.js"></script>
+    <script src="../assets/js/common/ace.min.js"></script>
+    <!--<script src="../assets/js/date-time/daterangepicker.min.js"></script>-->
+    <!--<script src="../assets/js/date-time/moment.min.js"></script>-->
+    <script src="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.25/moment.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.25/daterangepicker.js"></script>
+
+    <script src="../assets/js/common/common.js"></script>
+    <script src="../assets/js/common/dateFormat.js"></script>
+    <script src="../assets/js/student/dayReport.js"></script>
+
+</head>
+
+<body>
+<style>
+
+    #student-navbar{
+        background: #4889dc;
+    }
+    .ace-nav .nav-user-photo{
+        float: left;
+        margin-top: 8px;
+    }
+    .login-return{
+        margin-top: -1px;
+        margin-right: 10px;
+        width: 12px;
+        height: 16px;
+    }
+    .user-info{
+        float: left;
+        font-size: 13px;
+        padding-right: 5px;
+    }
+    .ace-nav>li.light-blue>a{
+        display: inline-block;
+        float: left;
+        font-size: 13px;
+        background-color: #4889dc;
+    }
+    .ace-nav>li.light-blue>a:hover, .ace-nav>li.light-blue>a:focus{
+        background-color: #206fd5;
+    }
+    .nav-user-photo{
+        width: 25px;
+        height: 25px;
+        margin-top: 15px;
+    }
+    .long-string{
+        width: 1px;
+        height: 12px;
+        background: #ffffff;
+        margin-top: 17px;
+        float: left;
+    }
+    .nav-select{
+        z-index: 100000000000;
+        position: absolute;
+        right: 30px;
+        height: auto;
+        top:42px;
+    }
+    .nav-select li{
+        height: 36px;
+        line-height: 36px;
+        border: none;
+        display:inline-block;
+        cursor: pointer;
+    }
+    .nav-select li a{
+        display: inline-block;
+        color: #fff;
+        padding: 0 5px;
+    }
+    .nav-select li a:hover{
+        background: #4889dc;
+    }
+    .nav-select li a span{
+        padding:0px 3px;
+        font-size:13px;
+        padding-left: 6px;
+    }
+    .nav-select li a i{
+        margin-top: -5px;
+    }
+    .nav-select li a s{
+        width: 1px;
+        height: 11px;
+        background: #fff;
+        display: inline-block;
+        margin-left: 5px;
+    }
+    .nav-select li:last-child a s{
+        display: none;
+    }
+    .select_ul li{
+        width: 50%;
+    }
+
+    .select_ul li a:hover{
+        color: #fff;
+        cursor: pointer;
+    }
+    #viewsList li{
+        width: 100%;
+        text-align: center;
+    }
+    .ace-nav>li:first-child .nav-return{
+        float: left;
+        margin-left: 0;
+        margin-top: -1px;
+    }
+    ul.nav-return li:hover{
+        background-color: #206fd5;
+    }
+    .light-blue ul.nav-return a{
+        color: #fff;
+    }
+    .light-blue ul.nav-return a:hover{
+        background-color: #206fd5;
+    }
+    .ace-nav{
+        float: right;
+    }
+
+    #navbar .light-blue [name="xixun_global_entrance_year"]{
+        width: 38%;
+        left: -6%;
+    }
+    #navbar .light-blue [name="xixun_global_graduate_year"]{
+        width: 38%;
+        left: 29%;
+    }
+    #navbar .light-blue #viewsList{
+        width: 38%;
+        left: 54%;
+    }
+    .nav-select li ul li{
+        width: 50%;
+        text-align: center;
+    }
+    .nav-select li ul li a{
+        color: #333;
+    }
+    .nav-select li ul li a:hover{
+        color: #fff;
+        padding: 5px 8px;
+        cursor: pointer;
+    }
+</style>
+
+<div class="navbar navbar-default" id="navbar">
+
+    <div class="navbar-container" id="navbar-container"></div>
+
+</div>
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div class="sidebar" id="sidebar"></div>
+
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        	实习日报
+                    </h1>
+                </div><!-- /.page-header -->
+                
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="m-row f-pr" style="margin-bottom: 5px;">
+                            <div class="col-sm-4 col-lg-4">
+                                <div class="m-tab">
+                                    <div class="m-tabcell align-right">
+                                        <label style="width:100px;padding-right:10px;">填写日期：</label>
+                                    </div>
+                                    <div class="m-tabcell f-width">
+                                        <div class="input-group f-width">
+									<span class="input-group-addon">
+										<i class=" icon-calendar"></i>
+									</span>
+                                            <div class="sendtime">
+                                                <input class="f-width " id="data-val" name="sendtime" value=" "
+                                                       type="text" readonly="readonly">
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 col-lg-2">
+                                <div class="m-tab">
+                                    <div class="m-tabcell">
+                                        <label style="width:80px;">审批状态：</label>
+                                    </div>
+                                    <div class="m-tabcell f-width">
+                                        <select id="check_status" class="f-width dark" style="font-size:14px;">
+                                            <option value="-1">请选择</option>
+                                            <option value="1">已审批</option>
+                                            <option value="0">待审核</option>
+                                            <option value="2">打回</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-lg-3">
+                                <button class="btn btn-success btn-sm u-btn u-h-30" id="btn-search" style="float:left;"><i class="icon-search align-top bigger-125"></i> 查询</button>
+                                <button class="btn btn-info btn-sm u-btn u-h-30" onclick="new_report_dialog_fn();" style="float:left;margin-left: 5px;"><i class="icon-pencil align-top bigger-125"></i>新建日报</button>
+                            </div>
+                        </div>
+                    </div>
+					<div id="main_grid" class="col-xs-12">
+						<table id="grid-table"></table>
+						<div id="grid-pager"></div>
+					</div><!-- /.col -->
+                </div>
+            </div><!-- /.page-content -->
+
+			<!--新建日报-->
+            <div id="new_report_dialog" class="m-popup" style="display: none">
+                <div class="m-popup-box"
+                     style="width:700px; height:380px;overflow:auto; margin-top:50px;">
+                    <h2>新建日报
+                        <a href="javascript:void(0)" class="pull-right bigger-170 s-c999" style="margin-right:20px;"
+                           id="closeSendNotice" onclick="close_dialog()">×</a>
+                    </h2>
+                    <div class="col-sm-12 col-lg-12 m-orgtable">
+                    	<input id="report_id" style="display:none;" type="text" />
+                        <div class="f-tr f-pb10">
+                        	<div class="col-sm-12 col-lg-12 m-orgtable">
+                        		<label style="float:left;">学习内容：</label>
+                        		<textarea id="study_content_s" style="width: 550px;" rows="3"></textarea>
+                        	</div>
+                        	<div class="col-sm-12 col-lg-12 m-orgtable">
+                        		<label style="float:left;">学习收获：</label>
+                        		<textarea id="study_harvest_s" style="width: 550px;" rows="3"></textarea>
+                        	</div>
+                        	<div class="col-sm-12 col-lg-12 m-orgtable">
+                        		<label style="float:left;">问题反馈：</label>
+                        		<textarea id="question_s" style="width: 550px;" rows="3"></textarea>
+                        	</div>
+                        	<div class="col-sm-12 col-lg-12 m-orgtable">
+                            	<input id="makeSureSend" class="u-btn" value="确 定" onclick="new_dayReport();" type="submit">&nbsp;&nbsp;
+                            	<input id="clearSend" onclick="close_dialog();" class="u-btn u-btn-2 " value="取 消" type="submit">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ 新建日报 -->
+
+            <script>
+                
+            </script>
+
+
+        </div><!-- /.main-content -->
+
+    </div><!-- /.main-container-inner -->
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div><!-- /.main-container -->
+
+
+<!-- inline scripts related to this page -->
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        var oTable1 = $('#sample-table-2').dataTable({
+            "aoColumns": [
+                {"bSortable": false},
+                null, null, null, null, null,
+                {"bSortable": false}
+            ]
+        });
+
+
+        $('table th input:checkbox').on('click', function () {
+            var that = this;
+            $(this).closest('table').find('tr > td:first-child input:checkbox')
+                .each(function () {
+                    this.checked = that.checked;
+                    $(this).closest('tr').toggleClass('selected');
+                });
+
+        });
+
+
+        $('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+        function tooltip_placement(context, source) {
+            var $source = $(source);
+            var $parent = $source.closest('table')
+            var off1 = $parent.offset();
+            var w1 = $parent.width();
+
+            var off2 = $source.offset();
+            var w2 = $source.width();
+
+            if (parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
+            return 'left';
+        }
+    })
+</script>
+
+</body>
+</html>
+

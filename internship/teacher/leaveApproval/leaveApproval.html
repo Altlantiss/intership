@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>乐享-实习管理平台</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+    <!--<link href="../../assets/css/common/bootstrap.min.css" rel="stylesheet"/>-->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../../assets/css/common/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace-skins.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/global.css">
+    <link rel="stylesheet" href="../../assets/css/common/index.css">
+    <!--<link rel="stylesheet" href="../../assets/css/common/daterangepicker-bs3.css">-->
+    <link href="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.25/daterangepicker.css" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="../../assets/css/practiceWaitApproval.css">
+    <script src="../../assets/js/common/ace-extra.min.js"></script>
+    <script src="../../assets/js/common/html5shiv.js"></script>
+    <script src="../../assets/js/common/respond.min.js"></script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../../assets/js/common/jquery-2.0.3.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../../assets/js/jquery-1.10.2.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        if ("ontouchend" in document) document.write("<script src='../../assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    </script>
+    <script src="../../assets/js/common/jquery.cookie.js"></script>
+    <script src="../../assets/js/header.js"></script>
+    <script src="../../assets/js/sidebar.js"></script>
+    <script src="../../assets/js/jqGrid.js"></script>
+    <script src="../../assets/js/common/bootstrap.min.js"></script>
+    <script src="../../assets/js/common/typeahead-bs2.min.js"></script>
+    <script src="../../assets/js/common/jquery.dataTables.min.js"></script>
+    <script src="../../assets/js/common/jquery.dataTables.bootstrap.js"></script>
+    <script src="../../assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+    <script src="../../assets/js/jqGrid/i18n/grid.locale-en.js"></script>
+    <script src="../../assets/js/common/ace-elements.min.js"></script>
+    <script src="../../assets/js/common/ace.min.js"></script>
+    <!--<script src="../../assets/js/date-time/daterangepicker.min.js"></script>-->
+    <!--<script src="../../assets/js/date-time/moment.min.js"></script>-->
+    <script src="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.25/moment.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.25/daterangepicker.js"></script>
+
+    <script src="../../assets/js/function/cookie.js"></script>
+    <script src="../../assets/js/common/common.js"></script>
+
+    <script src="./leaveApproval.js"></script>
+    <script src="leaveApproval.js"></script>
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default" id="navbar">
+
+    <div class="navbar-container" id="navbar-container"></div>
+
+</div>
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div class="sidebar" id="sidebar"></div>
+
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        申请审批
+                        <small>
+                            <i class="icon-double-angle-right"></i>
+                            请假申请审批
+                        </small>
+                    </h1>
+                </div>
+
+                <div class="row f-pt20">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="m-row f-pr">
+                            <div class="col-sm-4 col-lg-4">
+                                <div class="m-tab">
+                                    <div class="m-tabcell align-right">
+                                        <label style="width:100px;padding-right:10px;">申请时间：</label>
+                                    </div>
+                                    <div class="m-tabcell f-width">
+                                        <div class="input-group f-width">
+                                            <span class="input-group-addon">
+                                                <i class=" icon-calendar"></i>
+                                            </span>
+                                            <div class="sendtime">
+                                                <input class="f-width " id="data-val" name="sendtime" value=" " type="text" readonly="readonly">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 col-lg-2">
+                                <div class="m-tab">
+                                    <div class="m-tabcell align-right">
+                                        <label style="width:100px;padding-right:10px;">审批进度：</label>
+                                    </div>
+                                    <div class="m-tabcell f-width">
+                                        <div class="input-group f-width">
+                                            <select name="" id="approvalProcess">
+                                                <option value="-1">请选择</option>
+                                                <option value="0">未审批</option>
+                                                <option value="1">通过</option>
+                                                <option value="2">不通过</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-lg-3">
+                                <div class="m-tab">
+                                    <div class="m-tabcell f-width">
+                                        <input class="f-width u-h-30" id="student-keyword" name="title"
+                                               placeholder="搜索学生姓名/学号" type="text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-1 col-lg-1">
+                                <input class="u-btn u-h-30" id="btn-search" value="搜索" type="submit">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-lg-12">
+
+                        <table id="grid-table"></table>
+
+                        <div id="grid-pager"></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--查看详情-->
+            <div id="detailPopUp" class="m-popup">
+                <div class="m-popup-box"
+                     style="width:1000px; min-height:150px; max-height:700px;overflow:auto; margin-top:200px; padding: 20px">
+                    <div id="popUpDetail">
+
+                    </div>
+                    <div class="approvalTitle">实习申请审批</div>
+                    <div class="approvalOption">
+                        <label for="approvalOpinion">
+                            审批意见：
+                            <textarea name="" id="approvalOpinion" cols="30" rows="10"
+                                      placeholder="请填写审批意见，非必填，最多输入100字"></textarea>
+                        </label>
+
+                    </div>
+                    <div class="detailBtn">
+                        <button class="btn btn-sm btn-primary" style="margin-left: 10px" id="canApproval">审批通过</button>
+                        <button class="btn btn-sm btn-primary" id="cannotApproval">审批不通过</button>
+                        <button class="btn btn-sm" id="goBack">返回</button>
+                    </div>
+
+                </div>
+            </div>
+            <!--查看详情-->
+        </div><!-- /.main-content -->
+
+    </div><!-- /.main-container-inner -->
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div><!-- /.main-container -->
+
+
+<!-- inline scripts related to this page -->
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        var oTable1 = $('#sample-table-2').dataTable({
+            "aoColumns": [
+                {"bSortable": false},
+                null, null, null, null, null,
+                {"bSortable": false}
+            ]
+        });
+
+
+        $('table th input:checkbox').on('click', function () {
+            var that = this;
+            $(this).closest('table').find('tr > td:first-child input:checkbox')
+                .each(function () {
+                    this.checked = that.checked;
+                    $(this).closest('tr').toggleClass('selected');
+                });
+
+        });
+
+
+        $('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+        function tooltip_placement(context, source) {
+            var $source = $(source);
+            var $parent = $source.closest('table')
+            var off1 = $parent.offset();
+            var w1 = $parent.width();
+
+            var off2 = $source.offset();
+            var w2 = $source.width();
+
+            if (parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
+            return 'left';
+        }
+    })
+</script>
+
+</body>
+</html>
+

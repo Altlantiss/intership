@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>顶岗实习-实习管理平台</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand" />
+    <link rel="stylesheet" href="../../assets/css/common/base.css">
+    <link rel="stylesheet" href="../../assets/css/login.css">
+    <link href="../../assets/css/common/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../assets/css/common/global.css" />
+</head>
+<style type="text/css">
+    label{
+        font-weight:lighter;
+    }
+    a{
+        font-size:18px;
+        color:black !important;
+        text-decoration:none !important;
+    }
+    .get_validate{
+        cursor:pointer;
+    }
+</style>
+<body>
+<!--<div class="header">
+    <div class="logo">
+        <img src="images/u8.png" style="font-weight: 400;" height="140">乐享-实习管理平台
+    </div>
+    <div class="nav">
+        <a href="enterprise/login.html" style="display: inline-block;margin-left: 10px;">企业合作申请</a>
+        <a href="http://www.vanber.cn/" style="display: inline-block;margin-left: 20px;margin-right:20px">万博职教</a>
+        <a style="display: inline-block;margin-right:10px" href="index.html">
+            <div style="display: inline-block;position:relative;padding:5px 30px;text-align: center;margin-top: 5px;border-radius: 20px;border:1px solid black">
+                返回首页
+            </div>
+        </a>
+    </div>
+</div>-->
+<!--  <div style="background:url(https://www.fxiaoke.com/XV/Asset/img/reg/bg.png)"></div> -->
+<div class="nav">
+    <ul style="font-size: 16px;">
+        <li>
+            <a href="./schoolApplication.html" style="display: inline-block;margin-left: 10px;">院校开通申请</a>
+        </li>
+        <!--<li>
+            <a href="#" style="display: inline-block;margin-left: 20px;margin-right:20px">校企合作申请</a>
+        </li>-->
+        <li>
+            <a href="./aboutus.html"  style="display: inline-block;margin-right:10px;color: #1963AA!important;">
+                关于我们
+            </a>
+        </li>
+        <li>
+            <a href="../login/login.html" style="display: inline-block;margin-right:10px">返回</a>
+        </li>
+    </ul>
+</div>
+<div class="col-md-12 col-sm-12" style="height:730px;margin-top: 100px;">
+    <div id="form" style="margin-top: 10%;background:white;box-shadow: 0 0 10px gray;" class="col-md-8 col-sm-8 col-sm-offset-2 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1">
+            <form style="background:white" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <h2 class="text-center" style="font-weight: bold;">关于我们</h2>
+	                <h5 class="text-center">
+						苏州奇儿网络科技有限公司位于中国园林之城，人间天堂苏州，苏州市高新区竹园路209号。
+	                </h5>
+	                <h5 class="text-center">
+	                	 我们是一家充满着梦想、希望、奋斗与情怀的新晋网络公司。
+	            	</h5>
+	            	<h5 class="text-center">
+	                	 我们专注于移动互联网的应用，着迷于科技给生活带来的变化，执着于给用户带来完美的体验。
+	            	</h5>
+	            	<h5 class="text-center">
+	                	  我们是一群来自美国，来自不同领域的geek，我们有着硕士、博士学位，却更有着一颗追寻未知，颠覆传统的赤子之心。
+	            	</h5>
+	            	<h5 class="text-center">
+	                	  我们有最好的产品和专业的销售和技术团队，我们为客户提供最好的产品、良好的技术支持、健全的售后服务。热诚欢迎各界朋友前来参观、洽谈业务。
+	            	</h5>
+					<br/>
+                         <h5 style="font-size: 12px" class="text-center text-danger">
+                        联系电话：0512-68247668
+                        </span>
+                    </h5>
+                </div>
+               
+               
+            </form>
+           
+        </div>
+    </div>
+</div>
+
+<!--<div class="footer">
+    <div class="float-box">
+        <dl>
+            <dd style="margin-right: 30px">
+                <p>IOS客户端</p>
+                <img src="images/latest_ios.jpg">
+            </dd>
+            <dd>
+                <p>安卓客户端</p>
+                <img src="images/my_android.png">
+            </dd>
+        </dl>
+    </div>
+    <dl>
+        <dd><a href="http://www.vanber.cn/">关于万博</a> |</dd>
+        <dd><a href="Application.html">联系我们</a></dd>
+    </dl>
+    <div style="margin-top:10px">
+        地址：北京市海淀区苏州街3号大恒科技大厦南座5层 电话：18911656408
+    </div>
+    <div style="margin-top:10px">
+        Copyright © 2015-2016 Vanber. All Rights Reserved. 京ICP备15033449号-2
+    </div>
+</div>-->
+<script type="text/javascript" src="../../assets/js/common/jquery-2.0.3.min.js"></script>
+<script src="../../assets/js/common/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../assets/js/common/apiurl.js"></script>
+<script type="text/javascript" src="../../assets/js/common/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/js/common.js"></script>
+<script type="text/javascript" src="../../assets/js/common/area.js"></script>
+<!-- <script type="text/javascript" src="js/md5.js"></script> -->
+<script type="text/javascript">
+    //定义全局变量
+    var scale,school_name,school_address,contact,phone;
+    $(function(){
+        area("province","city","area");
+    });
+    //学校规模选择
+    $(".scale").on("click",function(){
+        $(".scale").removeClass('btn-info');
+        $(this).addClass("btn-info");
+        scale=$(this).text();
+    })
+    //获取验证码
+    $(".get_validate").on("click",function(){
+        if(window["TIME"]==undefined||window["TIME"]==60){
+            //ajax逻辑
+            $.ajax({
+                url:apiurl_ntk('companyuser/code'),
+                dataType:'json',
+                type:'get',
+                data:{
+                    phone:$("#phone").val()
+                },
+                success:function(data){
+                    if(data.code==20000){
+                        var result=setValidateTime("#get_validate",60,"获取验证码");
+                    }else{
+                        my_alert("提示","获取验证码失败，请检查手机号码是否输入正确");
+                    }
+                }
+            });
+        }
+    });
+
+    window["TIMESTATE"]=true;
+    $("#submit").on("click",function(){
+        var scale_number;
+        school_name=$("#school_name").val();
+        school_address=$("#school_detail_address").val();
+        contact=$("#contact").val();
+        phone=$("#phone").val();
+        validateCode=$("#validate_code").val();
+        var province_id=$("#province").find("option:selected").attr("id");
+        var city_id=$("#city").find("option:selected").attr("id");
+        var area_id=$("#area").find("option:selected").attr("id");
+        if(!school_name||!contact||!phone||!validateCode){
+            my_alert("提示","请填写完整必填内容");
+            return false;
+        }
+        switch(scale){
+            case '1000人以下':
+                scale_number=0;
+                break;
+            case '1000-3000人':
+                scale_number=1;
+                break;
+            case '3000-5000人':
+                scale_number=2;
+                break;
+            case '5000-8000人':
+                scale_number=3;
+                break;
+            case '8000-10000人':
+                scale_number=4;
+                break;
+            case '10000人以上':
+                scale_number=5;
+                break;
+        }
+        // console.log(window["TIMESTATE"]);
+        if(window["TIMESTATE"]==true){
+            window["TIMESTATE"]=false;
+            setTimeout('window["TIMESTATE"]=true',10000);
+            $.ajax({
+                url:apiurl_ntk('operator/apply'),
+                dataType:'json',
+                type:'post',
+                data:{
+                    school_name:school_name,
+                    province_id:province_id,
+                    city_id:city_id,
+                    district_id:area_id,
+                    address:school_address,
+                    scale:scale_number,
+                    contacts:contact,
+                    contacts_phone:phone,
+                    qq:returnnull($("#qq").val()," "),
+                    posts:returnnull($("#duty").val()," "),
+                    email:returnnull($("#email").val()," "),
+                    telephone:returnnull($("#tel").val()," "),
+                    code:validateCode
+                },
+                success:function(data){
+                    if(data.code==20000){
+                        $("#form").addClass("hide")
+                        $("#form2").show();
+                        setInterval('window.location.href="index.html"', 3000);
+                    }else{
+                        my_alert("提示",data.message);
+                    }
+                }
+            })
+        }else{
+            my_alert("提示","不能频繁的提交申请，请稍后重试");
+            return false;
+        }
+
+
+    });
+    $("#province").on("change",function(){
+        provinceChange("province","city","area");
+    });
+    $("#city").on("change",function(){
+        cityChange("city","area");
+    });
+</script>
+</body>
+</html>

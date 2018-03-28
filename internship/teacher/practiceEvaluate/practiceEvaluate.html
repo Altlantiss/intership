@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>乐享-实习管理平台</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+    <!--<link href="../../assets/css/common/bootstrap.min.css" rel="stylesheet"/>-->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/css/common/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace-skins.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/global.css">
+    <link rel="stylesheet" href="../../assets/css/common/index.css">
+    <!--<link rel="stylesheet" href="../../assets/css/common/daterangepicker-bs3.css">-->
+    <link href="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.25/daterangepicker.css" rel="stylesheet">
+
+    <script src="../../assets/js/common/ace-extra.min.js"></script>
+    <script src="../../assets/js/common/html5shiv.js"></script>
+    <script src="../../assets/js/common/respond.min.js"></script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../../assets/js/common/jquery-2.0.3.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../../assets/js/jquery-1.10.2.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        if ("ontouchend" in document) document.write("<script src='../../assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    </script>
+    <script src="../../assets/js/common/jquery.cookie.js"></script>
+    <script src="../../assets/js/header.js"></script>
+    <script src="../../assets/js/sidebar.js"></script>
+    <script src="../../assets/js/jqGrid.js"></script>
+    <script src="../../assets/js/common/bootstrap.min.js"></script>
+    <script src="../../assets/js/common/typeahead-bs2.min.js"></script>
+    <script src="../../assets/js/common/jquery.dataTables.min.js"></script>
+    <script src="../../assets/js/common/jquery.dataTables.bootstrap.js"></script>
+    <script src="../../assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+    <script src="../../assets/js/jqGrid/i18n/grid.locale-en.js"></script>
+    <script src="../../assets/js/common/ace-elements.min.js"></script>
+    <script src="../../assets/js/common/ace.min.js"></script>
+    <!--<script src="../../assets/js/date-time/daterangepicker.min.js"></script>-->
+    <!--<script src="../../assets/js/date-time/moment.min.js"></script>-->
+    <script src="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.25/moment.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.25/daterangepicker.js"></script>
+
+    <script src="../../assets/js/function/cookie.js"></script>
+    <script src="../../assets/js/common/common.js"></script>
+
+    <script src="./practiceEvaluate.js"></script>
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default" id="navbar">
+
+    <div class="navbar-container" id="navbar-container"></div>
+
+</div>
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div class="sidebar" id="sidebar"></div>
+
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        实习考评
+                        <small>
+                            <i class="icon-double-angle-right"></i>
+                            我的考评
+                        </small>
+                    </h1>
+                </div>
+
+                <div class="widget-header m-toolbar">
+                    <div class="widget-toolbar no-border pull-left">
+                        <ul class="nav nav-tabs f-pl10 center m-apply-nav" style="z-index:1;">
+                            <li class="active">
+                                <a href="../practiceEvaluate/practiceEvaluate.html">我的考评</a>
+                            </li>
+                            <li class="">
+                                <a href="../practiceEvaluateByStudent/practiceEvaluateByStudent.html">学生评价</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="row f-pt20">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="m-row f-pr">
+                            <div class="col-sm-4 col-lg-4">
+                                <div class="m-tab">
+                                    <div class="m-tabcell align-right">
+                                        <label style="width:100px;padding-right:10px;">创建时间：</label>
+                                    </div>
+                                    <div class="m-tabcell f-width">
+                                        <div class="input-group f-width">
+									<span class="input-group-addon">
+										<i class=" icon-calendar"></i>
+									</span>
+                                            <div class="sendtime">
+                                                <input class="f-width " id="data-val" name="sendtime" value=" "
+                                                       type="text" readonly="readonly">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-lg-4">
+                                <div class="m-tab">
+                                    <div class="m-tabcell">
+                                        <label style="width:80px;">学生姓名：</label>
+                                    </div>
+                                    <div class="m-tabcell f-width">
+                                        <input class="f-width u-h-30" id="student-keyword" name="title"
+                                               placeholder="输入学生姓名进行搜索" type="text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-1 col-lg-1">
+                                <input class="u-btn u-h-30" id="btn-search" value="搜索" type="submit">
+                            </div>
+
+                            <div class="col-sm-1 col-lg-1">
+                                <input class="u-btn u-h-30" id="btn-add" value="新增考评" onclick="open_add_dialog_fn()" type="submit">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-lg-12">
+
+                        <table id="grid-table"></table>
+
+                        <div id="grid-pager"></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--新增-->
+            <div id="add_evaluate_dialog" class="m-popup" style="display: none">
+                <div class="m-popup-box"
+                     style="width:700px; height:525px;margin-top:50px;">
+                    <h2>考评
+                        <a href="javascript:void(0)" class="pull-right bigger-170 s-c999" style="margin-right:20px;"
+                           onclick="close_add_evaluate_dialog()">×</a>
+                    </h2>
+                    <form>
+                        <div class="col-sm-12 col-lg-12 m-orgtable">
+                            <label class="col-sm-2 col-lg-2" style="float:left;">选择学生：</label>
+                            <select id="choose-student" >
+                            </select>
+                        </div>
+                        <div class="col-sm-12 col-lg-12 m-orgtable">
+                            <label class="col-sm-2 col-lg-2" style="float:left;">满意度：</label>
+                            <select id="choose-add-level" value="优秀">
+                                <option value="优秀">优秀</option>
+                                <option value="良好">良好</option>
+                                <option value="合格">合格</option>
+                                <option value="不合格">不合格</option>
+                                <option value="极差">极差</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-12 col-lg-12 m-orgtable">
+                            <label class="col-sm-2 col-lg-2" style="float:left;">备注：</label>
+                            <div class="col-sm-9" style="padding: 0;">
+                                <textarea class="form-control f-mb10"
+                                          id="add-comment"
+                                          cols="30"
+                                          rows="10"
+                                          maxlength="100"
+                                          placeholder="请输入备注内容"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="col-sm-12 col-lg-12 m-orgtable">
+                        <div class="f-tr f-pb10" style="padding-top: 20px;">
+                            <input class="u-btn" value="确 定" onclick="save_add_evaluate();" type="submit">&nbsp;&nbsp;
+                            <input onclick="close_add_evaluate_dialog();" class="u-btn u-btn-2 " value="取 消" type="submit">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--编辑-->
+            <div id="edit_evaluate_dialog" class="m-popup" style="display: none">
+                <div class="m-popup-box"
+                     style="width:700px; height:525px;margin-top:50px;">
+                    <h2>考评
+                        <a href="javascript:void(0)" class="pull-right bigger-170 s-c999" style="margin-right:20px;"
+                           onclick="close_edit_evaluate_dialog()">×</a>
+                    </h2>
+                    <form>
+                        <div class="col-sm-12 col-lg-12 m-orgtable">
+                            <label class="col-sm-2 col-lg-2" style="float:left;">满意度：</label>
+                            <select id="choose-edit-level" value="优秀">
+                                <option value="优秀">优秀</option>
+                                <option value="良好">良好</option>
+                                <option value="合格">合格</option>
+                                <option value="不合格">不合格</option>
+                                <option value="极差">极差</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-12 col-lg-12 m-orgtable">
+                            <label class="col-sm-2 col-lg-2" style="float:left;">备注：</label>
+                            <div class="col-sm-9" style="padding: 0;">
+                                <textarea class="form-control f-mb10"
+                                          id="edit-comment"
+                                          cols="30"
+                                          rows="10"
+                                          maxlength="100"
+                                          placeholder="请输入备注内容"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="col-sm-12 col-lg-12 m-orgtable">
+                        <div class="f-tr f-pb10" style="padding-top: 20px;">
+                            <input class="u-btn" value="确 定" onclick="save_edit_evaluate();" type="submit">&nbsp;&nbsp;
+                            <input onclick="close_edit_evaluate_dialog();" class="u-btn u-btn-2 " value="取 消" type="submit">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div>
+
+</body>
+</html>
+

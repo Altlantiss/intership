@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>顶岗实习-实习管理平台</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand" />
+    <link rel="stylesheet" href="../../assets/css/common/base.css">
+    <link rel="stylesheet" href="../../assets/css/login.css">
+    <link href="../../assets/css/common/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../assets/css/common/global.css" />
+</head>
+<style type="text/css">
+    label{
+        font-weight:lighter;
+    }
+    a{
+        font-size:18px;
+        color:black !important;
+        text-decoration:none !important;
+    }
+    .get_validate{
+        cursor:pointer;
+    }
+</style>
+<body>
+<!--<div class="header">
+    <div class="logo">
+        <img src="images/u8.png" style="font-weight: 400;" height="140">乐享-实习管理平台
+    </div>
+    <div class="nav">
+        <a href="enterprise/login.html" style="display: inline-block;margin-left: 10px;">企业合作申请</a>
+        <a href="http://www.vanber.cn/" style="display: inline-block;margin-left: 20px;margin-right:20px">万博职教</a>
+        <a style="display: inline-block;margin-right:10px" href="index.html">
+            <div style="display: inline-block;position:relative;padding:5px 30px;text-align: center;margin-top: 5px;border-radius: 20px;border:1px solid black">
+                返回首页
+            </div>
+        </a>
+    </div>
+</div>-->
+<!--  <div style="background:url(https://www.fxiaoke.com/XV/Asset/img/reg/bg.png)"></div> -->
+<div class="nav">
+    <ul style="font-size: 16px;">
+        <li>
+            <a href="./schoolApplication.html" style="display: inline-block;margin-left: 10px;color: #1963AA!important;">院校开通申请</a>
+        </li>
+        <!--<li>
+            <a href="#" style="display: inline-block;margin-left: 20px;margin-right:20px">校企合作申请</a>
+        </li>-->
+        <li>
+            <a href="./aboutus.html"  style="display: inline-block;margin-right:10px">
+                关于我们
+            </a>
+        </li>
+        <li>
+            <a href="../login/login.html" style="display: inline-block;margin-right:10px">返回</a>
+        </li>
+    </ul>
+</div>
+<div class="col-md-12 col-sm-12" style="height:730px;margin-top: 100px;">
+    <div id="form" style="margin-top: 30px;background:white;box-shadow: 0 0 10px gray;" class="col-md-8 col-sm-8 col-sm-offset-2 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1">
+            <form style="background:white;overflow: hidden;display: block;padding-left: 1px;" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <h2 class="text-center" style="font-weight: bold;">学校试用申请</h2>
+                    <!--<h5 class="text-center">
+                        专属客服会在三个工作日内与您联系，快速开通请联系客服电话
+                        <span class="text-warning">
+                            18911656408
+                        </span>
+                    </h5>
+                    <h5 style="font-size: 12px" class="text-center text-danger">
+                        学生不可以填写此申请，如有疑问请加客服QQ1：3476056242 QQ2：1059968723
+                        </span>
+                    </h5>-->
+                </div>
+                <!-- <div class="input-group"> -->
+                <div class="col-md-6 col-sm-6" style="padding-left: 0">
+                    <label>学校名称</label><small>(必填)</small>
+                    <div style="padding-right:10px" class="input-group">
+                        <input  id="school_name" type="text" placeholder="请填写学校名称" class="form-control">
+                        <span class="input-group-btn">
+                            <span disabled="disabled" style="margin-left:10px" class=" text-center text-danger" type="button"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6" style="padding-left: 0">
+                    <div class="pull-left" style="float: initial!important">
+                        <label>联系人</label><small>(必填)</small>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <div style="margin-left: -13px;" class="input-group">
+                            <input id="contact" type="text" placeholder="请填写联系人姓名" class="form-control">
+                            <span class="input-group-btn">
+                                <span disabled="disabled" style="margin-left:10px" class=" text-center text-danger" type="button"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <label>学校地址</label><small>(必填)</small>
+                </div>
+                <div class="input-group col-md-12">
+                    <div class="col-md-8">
+                        <div style="margin-left:-35px" class="col-md-4 col-sm-4">
+                            <select id="province" style="width:100%" class="form-control">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <select id="city" style="width:100%" class="form-control">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <select id="area" style="width:100%" class="form-control">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4" style="padding:0px">
+                        <div style="width:100%" class="input-group pull-right">
+                            <input style="" id="school_detail_address" type="text" placeholder="请填写学校地址" class="form-control ">
+                            <span class="input-group-btn">
+                                    <span disabled="disabled" style="margin-left:10px" class=" text-center text-danger" type="button"></span>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <label>学校规模</label><small>(必填)</small>
+                </div>
+                <div class="input-group">
+                    <div style="width:15%" class="pull-left">
+                        <button type="button" class="btn btn-default btn-sm pull-left scale">1000人以下</button>
+                    </div>
+                    <div style="width:16%" class="pull-left">
+                        <button type="button" class="btn btn-default btn-sm scale">1000-3000人</button>
+                    </div>
+                    <div style="width:16%" class="pull-left">
+                        <button type="button" class="btn btn-default btn-sm scale">3000-5000人</button>
+                    </div>
+                    <div style="width:17%" class="pull-left">
+                        <button type="button" class="btn btn-default btn-sm scale">5000-8000人</button>
+                    </div>
+                    <div style="width:18%" class="pull-left">
+                        <button type="button" class="btn btn-default btn-sm scale">8000-10000人</button>
+                    </div>
+                    <div style="width:15%" class="pull-left">
+                        <button style="margin-right:-5px" type="button" class="scale btn btn-default btn-sm">10000人以上</button>
+                    </div>
+                    <!-- </div> -->
+                    <span class="input-group-btn">
+                        <span disabled="disabled" style="margin-left:10px" class=" text-center text-danger" type="button"></span>
+                    </span>
+                    <!-- </div> -->
+                </div>
+                <!-- <div class="col-md-12"> -->
+                <div class="col-md-6 col-sm-6">
+                    <div class="pull-left" style="margin-top: 20px;margin-left: -13px;">
+                        <label>联系人电话</label><small>(必填)</small>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="pull-left" style="margin-top: 20px;">
+                        <label>学校性质</label><small>(必填)</small>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-12 col-sm-11" style="margin-left: -25px;" class="input-group">
+                        <input id="tel" style="width:110%" type="text" placeholder="请填写联系人电话" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-12 col-sm-11" style="margin-left: -25px;" class="input-group">
+                        <input id="nature" style="width:110%" type="text" placeholder="请填写学校性质(民办或者公办)" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="pull-left" style="margin-top: 20px;margin-left: -13px;">
+                        <label>邮政编码</label>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="pull-left" style="margin-top: 20px;">
+                        <label>学校网站</label>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-12 col-sm-11" style="margin-left: -25px;" class="input-group">
+                        <input id="zipcode" style="width:110%" type="text" placeholder="请填写邮编" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-12 col-sm-11" style="margin-left: -25px;" class="input-group">
+                        <input id="website" style="width:110%" type="text" placeholder="请填写网址" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-7 col-sm-7">
+                    <div class="pull-left" style="margin-top: 20px;margin-left:-13px;">
+                        <label>隶属关系</label>
+                    </div>
+                </div>
+                <div class="col-md-11 col-sm-11">
+                    <div class="col-md-12 col-sm-11" style="margin-left: -25px;" class="input-group">
+                        <input id="belong" style="width:110%" type="text" placeholder="请填写隶属关系" class="form-control">
+                    </div>
+                </div>
+
+            </form>
+            <div style="width: 100%;height: 50px;margin-top: 10px;">
+                <button id="submit" class="btn btn-info"  style="background-color: #1963AA;border-color: #1963AA;font-size: 18px;display: block;margin: 0 auto;">提交申请</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="footer">
+    <div class="float-box">
+        <dl>
+            <dd style="margin-right: 30px">
+                <p>IOS客户端</p>
+                <img src="images/latest_ios.jpg">
+            </dd>
+            <dd>
+                <p>安卓客户端</p>
+                <img src="images/my_android.png">
+            </dd>
+        </dl>
+    </div>
+    <dl>
+        <dd><a href="http://www.vanber.cn/">关于万博</a> |</dd>
+        <dd><a href="Application.html">联系我们</a></dd>
+    </dl>
+    <div style="margin-top:10px">
+        地址：北京市海淀区苏州街3号大恒科技大厦南座5层 电话：18911656408
+    </div>
+    <div style="margin-top:10px">
+        Copyright © 2015-2016 Vanber. All Rights Reserved. 京ICP备15033449号-2
+    </div>
+</div>-->
+<script type="text/javascript" src="../../assets/js/common/jquery-2.0.3.min.js"></script>
+<script src="../../assets/js/common/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../assets/js/common/apiurl.js"></script>
+<script type="text/javascript" src="../../assets/js/common/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/js/common.js"></script>
+<script type="text/javascript" src="../../assets/js/common/area.js"></script>
+<!-- <script type="text/javascript" src="js/md5.js"></script> -->
+<script type="text/javascript">
+    //定义全局变量
+    var scale,school_name,school_address,contact,tel,nature,zipcode,website,belong;
+    $(function(){
+        area("province","city","area");
+    });
+    //学校规模选择
+    $(".scale").on("click",function(){
+        $(".scale").removeClass('btn-info');
+        $(this).addClass("btn-info");
+        scale=$(this).text();
+    });
+    //获取验证码
+    $(".get_validate").on("click",function(){
+        if(window["TIME"]==undefined||window["TIME"]==60){
+            //ajax逻辑
+            $.ajax({
+                url:apiurl_ntk('companyuser/code'),
+                dataType:'json',
+                type:'get',
+                data:{
+                    phone:$("#phone").val()
+                },
+                success:function(data){
+                    if(data.code==20000){
+                        var result=setValidateTime("#get_validate",60,"获取验证码");
+                    }else{
+                        my_alert("提示","获取验证码失败，请检查手机号码是否输入正确");
+                    }
+                }
+            });
+        }
+    });
+    
+    $("#submit").on("click",function(){
+        school_name=$("#school_name").val();
+        school_address=$("#school_detail_address").val();
+        contact=$("#contact").val();
+        tel = $("#tel").val();
+        nature = $("#nature").val();
+        zipcode = $("#zipcode").val();
+        website =$("#website").val();
+        belong = $("#belong").val();
+        var province=$("#province").find("option:selected").text();
+        var city=$("#city").find("option:selected").text();
+        var area=$("#area").find("option:selected").text();
+        if(!school_name || !contact || !school_address || !scale || !tel || !nature || !province || !city || !area){
+            my_alert("提示","请填写完整必填内容");
+            return false;
+        }else{
+            $.ajax({
+                type: "POST",  //提交方式
+                url: apiUrl + "mobile/school",//路径
+                data: {
+                    schoolName:school_name,
+                    province:province,
+                    address:province + city + area + school_address ,
+                    nature: nature,
+                    studentCount:scale,
+                    belong: belong,
+                    contact:contact,
+                    tel:tel,
+                    zipcode:zipcode,
+                    website:website
+                },
+                success: function (data) {//返回数据根据结果进行相应的处理
+                    if( data.code === 0 ){
+                        alert("申请成功")
+                    }else{
+                        alert("申请失败")
+                    }
+                },
+                error:function(err){
+                    alert("申请出错，请稍后再试");
+                    console.log(err);
+                }
+            });
+        }
+
+
+
+
+
+    });
+    $("#province").on("change",function(){
+        provinceChange("province","city","area");
+    });
+    $("#city").on("change",function(){
+        cityChange("city","area");
+    });
+</script>
+</body>
+</html>

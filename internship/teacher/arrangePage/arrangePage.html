@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>乐享-实习管理平台</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+    <link href="../../assets/css/common/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../assets/css/common/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace-skins.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/global.css">
+    <link rel="stylesheet" href="../../assets/css/common/index.css">
+    <link rel="stylesheet" href="../../assets/css/common/daterangepicker-bs3.css">
+    <script src="../../assets/js/common/ace-extra.min.js"></script>
+    <script src="../../assets/js/common/html5shiv.js"></script>
+    <script src="../../assets/js/common/respond.min.js"></script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../../assets/js/common/jquery-2.0.3.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../../assets/js/jquery-1.10.2.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        if ("ontouchend" in document) document.write("<script src='../../assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    </script>
+    <script src="../../assets/js/common/jquery.cookie.js"></script>
+    <script src="../../assets/js/header.js"></script>
+    <script src="../../assets/js/sidebar.js"></script>
+    <script src="../../assets/js/jqGrid.js"></script>
+    <script src="../../assets/js/common/bootstrap.min.js"></script>
+    <script src="../../assets/js/common/typeahead-bs2.min.js"></script>
+    <script src="../../assets/js/common/jquery.dataTables.min.js"></script>
+    <script src="../../assets/js/common/jquery.dataTables.bootstrap.js"></script>
+    <script src="../../assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+    <script src="../../assets/js/jqGrid/i18n/grid.locale-en.js"></script>
+    <script src="../../assets/js/common/ace-elements.min.js"></script>
+    <script src="../../assets/js/common/ace.min.js"></script>
+    <script src="../../assets/js/date-time/daterangepicker.min.js"></script>
+    <script src="../../assets/js/date-time/moment.min.js"></script>
+    <script src="../../assets/js/function/cookie.js"></script>
+    <script src="../../assets/js/common/common.js"></script>
+
+    <script src="./arrangePage.js"></script>
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default" id="navbar">
+
+    <div class="navbar-container" id="navbar-container"></div>
+
+</div>
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div class="sidebar" id="sidebar"></div>
+
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        实习安排
+                    </h1>
+                </div><!-- /.page-header -->
+
+                <div style="width: 500px;margin: 20px auto;">
+                    <div style="margin-top: 18px">
+                        <label for="company">
+                            <span style="display: inline-block; width: 100px">实习单位</span>
+                            <input type="text" id="company" style="width:336px;">
+                        </label>
+                    </div>
+                    <div style="margin-top: 18px">
+                        <label for="code">
+                            <span style="display: inline-block; width: 100px">组织机构代码</span>
+                            <input type="text" id="code" style="width:336px;">
+                        </label>
+                    </div>
+                    <div style="margin-top: 18px">
+                        <label for="address">
+                            <span style="display: inline-block; width: 100px">实习单位地址</span>
+                            <input type="text" id="address" style="width:336px;">
+                        </label>
+                    </div>
+                    <div style="margin-top: 18px">
+                        <label for="teacher">
+                            <span style="display: inline-block; width: 100px">企业指导老师</span>
+                            <input type="text" id="teacher">
+                            <input type="text" id="phoneNum">
+                        </label>
+                    </div>
+                    <div style="margin-top: 18px">
+                        <label for="time">
+                            <span style="display: inline-block; width: 100px">实习时间</span>
+                            <input type="text" id="time" style="width:336px;">
+                        </label>
+                    </div>
+                    <div style="margin-top: 18px">
+                        <label for="money">
+                            <span style="display: inline-block; width: 100px">薪水待遇</span>
+                            <select name="" id="money" style="width:336px;">
+                                <option value="1">2000-3000</option>
+                                <option value="1">3000-4000</option>
+                                <option value="1">4000-35000</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div style="margin-top: 18px">
+                        <label for="remark">
+                            <span style="display: inline-block; width: 100px">备注说明</span>
+                            <textarea name="" id="remark" cols="40" rows="10"></textarea>
+                        </label>
+                    </div>
+
+                    <div style="margin-top: 30px">
+                        <input class="u-btn u-h-30" id="submit" value="提交" type="submit" style="margin-left: 100px">
+                        <input class="u-btn u-h-30" id="return" value="返回" type="submit" style="margin-left: 150px;background: #97A6AF">
+                    </div>
+
+                </div>
+
+
+
+            </div><!-- /.page-content -->
+
+
+
+        </div><!-- /.main-content -->
+
+    </div><!-- /.main-container-inner -->
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div><!-- /.main-container -->
+
+
+<!-- inline scripts related to this page -->
+
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        var oTable1 = $('#sample-table-2').dataTable({
+            "aoColumns": [
+                {"bSortable": false},
+                null, null, null, null, null,
+                {"bSortable": false}
+            ]
+        });
+
+
+        $('table th input:checkbox').on('click', function () {
+            var that = this;
+            $(this).closest('table').find('tr > td:first-child input:checkbox')
+                .each(function () {
+                    this.checked = that.checked;
+                    $(this).closest('tr').toggleClass('selected');
+                });
+
+        });
+
+
+        $('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+        function tooltip_placement(context, source) {
+            var $source = $(source);
+            var $parent = $source.closest('table')
+            var off1 = $parent.offset();
+            var w1 = $parent.width();
+
+            var off2 = $source.offset();
+            var w2 = $source.width();
+
+            if (parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
+            return 'left';
+        }
+    })
+</script>
+
+</body>
+</html>
+

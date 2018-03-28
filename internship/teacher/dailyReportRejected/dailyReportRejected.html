@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>乐享-实习管理平台</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+    <!--<link href="../../assets/css/common/bootstrap.min.css" rel="stylesheet"/>-->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/css/common/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/ace-skins.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/common/global.css">
+    <link rel="stylesheet" href="../../assets/css/common/index.css">
+    <!--<link rel="stylesheet" href="../../assets/css/common/daterangepicker-bs3.css">-->
+    <link href="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.25/daterangepicker.css" rel="stylesheet">
+
+    <script src="../../assets/js/common/ace-extra.min.js"></script>
+    <script src="../../assets/js/common/html5shiv.js"></script>
+    <script src="../../assets/js/common/respond.min.js"></script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../../assets/js/common/jquery-2.0.3.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../../assets/js/jquery-1.10.2.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        if ("ontouchend" in document) document.write("<script src='../../assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    </script>
+    <script src="../../assets/js/common/jquery.cookie.js"></script>
+    <script src="../../assets/js/header.js"></script>
+    <script src="../../assets/js/sidebar.js"></script>
+    <script src="../../assets/js/jqGrid.js"></script>
+    <script src="../../assets/js/common/bootstrap.min.js"></script>
+    <script src="../../assets/js/common/typeahead-bs2.min.js"></script>
+    <script src="../../assets/js/common/jquery.dataTables.min.js"></script>
+    <script src="../../assets/js/common/jquery.dataTables.bootstrap.js"></script>
+    <script src="../../assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+    <script src="../../assets/js/jqGrid/i18n/grid.locale-en.js"></script>
+    <script src="../../assets/js/common/ace-elements.min.js"></script>
+    <script src="../../assets/js/common/ace.min.js"></script>
+    <!--<script src="../../assets/js/date-time/daterangepicker.min.js"></script>-->
+    <!--<script src="../../assets/js/date-time/moment.min.js"></script>-->
+    <script src="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.25/moment.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.25/daterangepicker.js"></script>
+
+    <script src="../../assets/js/function/cookie.js"></script>
+    <script src="../../assets/js/common/common.js"></script>
+
+    <script src="./dailyReportRejected.js"></script>
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default" id="navbar">
+
+    <div class="navbar-container" id="navbar-container"></div>
+
+</div>
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div class="sidebar" id="sidebar"></div>
+
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        实习过程管理
+                        <small>
+                            <i class="icon-double-angle-right"></i>
+                            实习日报
+                        </small>
+                        <small>
+                            <i class="icon-double-angle-right"></i>
+                            打回
+                        </small>
+                    </h1>
+                </div>
+
+                <div class="widget-header m-toolbar">
+                    <div class="widget-toolbar no-border pull-left">
+                        <ul class="nav nav-tabs f-pl10 center m-apply-nav" style="z-index:1;">
+                            <li class="">
+                                <a href="../dailyReport/dailyReport.html">已审批</a>
+                            </li>
+                            <li class="">
+                                <a href="../dailyReportWaitingForApproved/dailyReportWaitingForApproved.html">待审批</a>
+                            </li>
+                            <li class="active">
+                                <a href="../dailyReportRejected/dailyReportRejected.html">打回</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row f-pt20">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="m-row f-pr">
+                            <div class="col-sm-4 col-lg-4">
+                                <div class="m-tab">
+                                    <div class="m-tabcell align-right">
+                                        <label style="width:100px;padding-right:10px;">发送时间：</label>
+                                    </div>
+                                    <div class="m-tabcell f-width">
+                                        <div class="input-group f-width">
+									<span class="input-group-addon">
+										<i class=" icon-calendar"></i>
+									</span>
+                                            <div class="sendtime">
+                                                <input class="f-width " id="data-val" name="sendtime" value=" "
+                                                       type="text" readonly="readonly">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-lg-4">
+                                <div class="m-tab" style="width: 100%">
+                                    <div class="m-tabcell f-width">
+                                        <input class="f-width u-h-30" id="student-keyword" name="title"
+                                               placeholder="搜索学生姓名/学号" type="text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-1 col-lg-1">
+                                <input class="u-btn u-h-30" id="btn-search" value="搜索" type="submit">
+                            </div>
+
+                            <div class="f-part" style="right:12px;">
+                                <input class="u-btn u-h-30" value="导出列表" type="submit" id="exportReport">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-lg-12">
+
+                        <table id="grid-table"></table>
+
+                        <div id="grid-pager"></div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div>
+
+
+
+</body>
+</html>
+

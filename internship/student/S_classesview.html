@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>乐享-实习管理平台</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+    <link href="../assets/css/common/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../assets/css/common/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../assets/css/common/ace.min.css"/>
+    <link rel="stylesheet" href="../assets/css/common/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="../assets/css/common/ace-skins.min.css"/>
+    <link rel="stylesheet" href="../assets/css/common/global.css">
+    <link rel="stylesheet" href="../assets/css/common/index.css">
+    <link rel="stylesheet" href="../assets/css/common/daterangepicker-bs3.css">
+
+    <script src="../assets/js/common/ace-extra.min.js"></script>
+    <script src="../assets/js/common/html5shiv.js"></script>
+    <script src="../assets/js/common/respond.min.js"></script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../assets/js/common/jquery-2.0.3.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../assets/js/jquery-1.10.2.min.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+        if ("ontouchend" in document) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    </script>
+    <script src="../assets/js/common/jquery.cookie.js"></script>
+    <script src="../assets/js/function/cookie.js"></script>
+    <script src="../assets/js/header.js"></script>
+    <script src="../assets/js/student_sidebar.js"></script>
+    <script src="../assets/js/common/bootstrap.min.js"></script>
+    <script src="../assets/js/common/typeahead-bs2.min.js"></script>
+    <script src="../assets/js/common/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/common/jquery.dataTables.bootstrap.js"></script>
+    <script src="../assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+    <script src="../assets/js/jqGrid/i18n/grid.locale-en.js"></script>
+    <script src="../assets/js/common/ace-elements.min.js"></script>
+    <script src="../assets/js/common/ace.min.js"></script>
+    <script src="../assets/js/date-time/daterangepicker.min.js"></script>
+    <script src="../assets/js/date-time/moment.min.js"></script>
+    <script src="../assets/js/common.js"></script>
+    <script src="../assets/js/function/cookie.js"></script>
+</head>
+
+<body>
+<style>
+
+    #student-navbar {
+        background: #4889dc;
+    }
+
+    .ace-nav .nav-user-photo {
+        float: left;
+        margin-top: 8px;
+    }
+
+    .login-return {
+        margin-top: -1px;
+        margin-right: 10px;
+        width: 12px;
+        height: 16px;
+    }
+
+    .user-info {
+        float: left;
+        font-size: 13px;
+        padding-right: 5px;
+    }
+
+    .ace-nav > li.light-blue > a {
+        display: inline-block;
+        float: left;
+        font-size: 13px;
+        background-color: #4889dc;
+    }
+
+    .ace-nav > li.light-blue > a:hover, .ace-nav > li.light-blue > a:focus {
+        background-color: #206fd5;
+    }
+
+    .nav-user-photo {
+        width: 25px;
+        height: 25px;
+        margin-top: 15px;
+    }
+
+    .long-string {
+        width: 1px;
+        height: 12px;
+        background: #ffffff;
+        margin-top: 17px;
+        float: left;
+    }
+
+    .nav-select {
+        z-index: 100000000000;
+        position: absolute;
+        right: 30px;
+        height: auto;
+        top: 42px;
+    }
+
+    .nav-select li {
+        height: 36px;
+        line-height: 36px;
+        border: none;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .nav-select li a {
+        display: inline-block;
+        color: #fff;
+        padding: 0 5px;
+    }
+
+    .nav-select li a:hover {
+        background: #4889dc;
+    }
+
+    .nav-select li a span {
+        padding: 0px 3px;
+        font-size: 13px;
+        padding-left: 6px;
+    }
+
+    .nav-select li a i {
+        margin-top: -5px;
+    }
+
+    .nav-select li a s {
+        width: 1px;
+        height: 11px;
+        background: #fff;
+        display: inline-block;
+        margin-left: 5px;
+    }
+
+    .nav-select li:last-child a s {
+        display: none;
+    }
+
+    .select_ul li {
+        width: 50%;
+    }
+
+    .select_ul li a:hover {
+        color: #fff;
+        cursor: pointer;
+    }
+
+    #viewsList li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .ace-nav > li:first-child .nav-return {
+        float: left;
+        margin-left: 0;
+        margin-top: -1px;
+    }
+
+    ul.nav-return li:hover {
+        background-color: #206fd5;
+    }
+
+    .light-blue ul.nav-return a {
+        color: #fff;
+    }
+
+    .light-blue ul.nav-return a:hover {
+        background-color: #206fd5;
+    }
+
+    .ace-nav {
+        float: right;
+    }
+
+    #navbar .light-blue [name="xixun_global_entrance_year"] {
+        width: 38%;
+        left: -6%;
+    }
+
+    #navbar .light-blue [name="xixun_global_graduate_year"] {
+        width: 38%;
+        left: 29%;
+    }
+
+    #navbar .light-blue #viewsList {
+        width: 38%;
+        left: 54%;
+    }
+
+    .nav-select li ul li {
+        width: 50%;
+        text-align: center;
+    }
+
+    .nav-select li ul li a {
+        color: #333;
+    }
+
+    .nav-select li ul li a:hover {
+        color: #fff;
+        padding: 5px 8px;
+        cursor: pointer;
+    }
+</style>
+<div class="navbar navbar-default" id="navbar">
+	<div class="navbar-container" id="navbar-container"></div>
+</div>
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+        <div class="sidebar" id="sidebar"></div>
+
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        班级查看
+                    </h1>
+                </div><!-- /.page-header -->
+
+
+                <div class="row f-pt20">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="m-row f-pr">
+
+                            <div class="col-sm-4 col-lg-4">
+                                <div class="m-tab">
+                                    <div class="m-tabcell">
+                                        <label style="width:80px;">关键字：</label>
+                                    </div>
+                                    <div class="m-tabcell f-width">
+                                        <input class="f-width u-h-30" id="notic_title_search" name="title"
+                                               placeholder="输入要搜索的班级或者专业" type="text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-1 col-lg-1">
+                                <input class="u-btn u-h-30" id="btn-search" value="搜索" type="submit">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="main_grid" class="col-xs-12">
+                        <table id="grid-table"></table>
+                        <div id="grid-pager"></div>
+                    </div><!-- /.col -->
+
+                </div>
+
+
+            </div><!-- /.page-content -->
+
+
+            <!--删除通知弹窗 -->
+            <div style="display: none;" id="deletepopup" class="m-popup">
+                <div class="m-popup-box"
+                     style="width:420px; min-height:150px; max-height:500px;overflow:auto; margin-top:200px;">
+                    <h2>删除通知
+                        <a href="javascript:void(0)" class="pull-right bigger-170 s-c999" style="margin-right:20px;"
+                           onclick="closepopup()">×</a>
+                    </h2>
+                    <div class="col-sm-12 col-lg-12 m-orgtable">
+                        <p class="h5 bigger-125 f-pl40 f-pt10">确定删除此条通知？</p>
+
+                        <div class="f-tr f-pb10">
+                            <input id="dele-not" class="u-btn" value="确 定" type="submit" onclick="notice_delete(de_id)">&nbsp;&nbsp;
+                            <input class="u-btn u-btn-2 " value="取 消" type="submit" onclick="closepopup()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ 删除通知弹窗 -->
+
+            <script>
+                var datestar = "";
+                var dateend = "";
+                var tit = "";
+                var num = '1';
+                var total = '0';
+
+                function deletepopup(id) {
+                    $('#deletepopup').show();
+                    de_id = id;
+                }
+                function closepopup() {
+                    $('#deletepopup').hide();
+                }
+                // var today = new Date();
+                // beginday = today.getTime()-31 * 24 * 3600 * 1000;
+
+
+                jQuery(document).ready(function(){
+                    jQuery("#notic_title_search").val("");
+                    var grid_selector = "#grid-table";
+                    var pager_selector = "#grid-pager";
+
+                    jQuery(grid_selector).jqGrid({
+                        url:"",
+                        mtype: "GET",
+                        datatype: "json",
+                        height: 372,
+                        colNames:['ID','学校','专业','班级','老师','入学时间','毕业时间'],
+                        colModel:[
+                            {name:'id',index:'id', width:150,editable:false,hidden: true},
+                            {name:'schoolName',index:'schoolName', width:150,editable:false},
+                            {name:'majorName',index:'majorName',width:250, editable:false},
+                            {name:'className',index:'className', width:200},
+                            {name:'teacherName',index:'teacherName', width:200},
+                            {name:'joinDate',index:'joinDate', width:150},
+                            {name:'leaveDate',index:'leaveDate', width:150}
+                        ],
+                        viewrecords : true,
+                        rowNum: 10,
+                        rowList:[10,20,30],
+                        pager : pager_selector,
+                        altRows: true,
+                        multiselect: true,
+                        multiboxonly: true,
+                        autoScroll: true,
+                        jsonReader: {
+                            root:"data.list", page:"data.pageNum", total:"data.pages",          //   很重要 定义了 后台分页参数的名字。
+                            records:"data.total"
+                        },
+                        beforeRequest:function(){
+                            var currentpage = jQuery("#grid-table").jqGrid('getGridParam','page');
+                            var rowNum = jQuery("#grid-table").jqGrid('getGridParam','rowNum');
+                            var notice_title = jQuery("#notic_title_search").val();
+                            var newUrl = apiUrl+"mobile/classes?page="+currentpage+"&limit="+rowNum+"&type=0&token="+cookie.get("token");
+                            if(notice_title != ""){
+                                newUrl =newUrl + "&param="+ notice_title;
+                            }
+                            jQuery("#grid-table").jqGrid('setGridParam',{url:newUrl});
+                        },
+                        loadComplete : function() {
+                            var table = this;
+                            setTimeout(function(){
+                                styleCheckbox(table);
+                                updateActionIcons(table);
+                                updatePagerIcons(table);
+                                enableTooltips(table);
+                            }, 0);
+                            update_grid_css();
+                        },
+                        caption: "班级列表",
+                        autowidth: true
+                    });
+
+                    jQuery("#btn-search").click(function(){
+                        jQuery("#grid-table").jqGrid().trigger("reloadGrid");
+                    });
+
+                });
+
+
+                function update_grid_css(){
+                    jQuery(".ui-jqgrid-view>.ui-jqgrid-titlebar").css("background-color","#39a7b3");
+                    jQuery(".ui-jqgrid .ui-jqgrid-htable th div").css("padding-top", "0px");
+                    jQuery(".ui-jqgrid .ui-jqgrid-pager").css("height","40px");
+                    jQuery(".ui-jqgrid .ui-pager-control").css("height","32px");
+                    jQuery('.ui-jqgrid-labels th[id*="_cb"]:first-child>div').css("padding-top","12px");
+                }
+
+
+                function styleCheckbox(table) {
+                }
+
+                function updateActionIcons(table) {
+                }
+
+                function updatePagerIcons(table) {
+                    var replacement =
+                        {
+                            'ui-icon-seek-first' : 'icon-double-angle-left bigger-140',
+                            'ui-icon-seek-prev' : 'icon-angle-left bigger-140',
+                            'ui-icon-seek-next' : 'icon-angle-right bigger-140',
+                            'ui-icon-seek-end' : 'icon-double-angle-right bigger-140'
+                        };
+                    $('.ui-pg-table:not(.navtable) > tbody > tr > .ui-pg-button > .ui-icon').each(function(){
+                        var icon = $(this);
+                        var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
+
+                        if($class in replacement) icon.attr('class', 'ui-icon '+replacement[$class]);
+                    })
+                }
+                function enableTooltips(table) {
+                    $('.navtable .ui-pg-button').tooltip({container:'body'});
+                    $(table).find('.ui-pg-div').tooltip({container:'body'});
+                }
+
+
+                $(function () {
+
+
+                    // 日历
+                    $('input[name="sendtime"]').daterangepicker({
+                        singleDatePicker: false,
+                        showDropdowns: false,
+                        // startDate: new Date(beginday),
+                        // endDate: new Date(),
+                        // maxDate: new Date(),
+                        locale: {
+                            daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+                            monthNames: ['一月', '二月', '三月', '四月', '五月', '六月',
+                                '七月', '八月', '九月', '十月', '十一月', '十二月'],
+                            firstDay: 1
+                        }
+                    });
+                    // 点击取消时清空日期
+                    $('input[name="sendtime"]').on('cancel.daterangepicker', function (ev, picker) {
+                        $('input[name="sendtime"]').val('');
+                        datestar = '';
+                        dateend = '';
+                        //getPageSearch(tit, datestar, dateend, 1, page_size);
+                    });
+
+                    //选择日期获取详情表
+                    $('input[name="sendtime"]').on('apply.daterangepicker', function (ev, picker) {
+                        datestar = picker.startDate.format('YYYY/MM/DD');
+                        dateend = picker.endDate.format('YYYY/MM/DD');
+                        //getPageSearch(tit, datestar, dateend, 1, page_size);
+                    });
+
+                });
+
+
+                /*//获取通知列表--------------------
+                 function getPageSearch(title, start_time, end_time, page_no, page_size) {
+                 $.ax({
+                 url: apiurl('notification/sent'),
+                 type: 'GET',
+                 datatype: 'json',
+                 data: {
+                 title: title,
+                 start_time: start_time,
+                 end_time: end_time,
+                 page_no: page_no,
+                 page_size: page_size
+                 },
+                 success: function (data) {
+                 if (data['code'] == '20000') {
+                 list = '';
+                 if (data.data == null) {
+                 data.data = '';
+                 removeload();
+                 return false;
+                 }
+                 if (data.data.count) {
+                 total = data.data.count;
+                 $('#total').html(total);
+                 }
+                 var json = data.data.list;
+                 if (json) {
+                 var s_time = '';
+                 $.each(json, function (i, item) {
+                 if (item.create !== null) {
+                 s_time = getTimeByTimestamp(item.create);
+                 }
+                 list += "<tr><td>" + s_time + "</td>";
+                 list += "<td class='tit'>" + returnnull(item.title) + "</td>";
+                 list += "<td class='cont'>" + returnnull(item.content) + "</td>";
+                 list += "<td>" + returnnull(item.read) + "</td>";
+                 list += "<td>{0}&nbsp;&nbsp;{1}&nbsp;&nbsp;{2}</td></tr>".format(
+                 "<a href='javascript:void(0)' onclick=\"btnurl('notice-detail&no_id=" + item.notification_id + "')\"'>查看详情</a>",
+                 "<a href='javascript:void(0)' onclick=\"btnurl('notice-edit&notice_id=" + item.notification_id + "')\"'>修改</a>",
+                 "<a href='javascript:void(0)' onclick='deletepopup(" + item.notification_id + ")'>删除</a>"
+                 );
+
+                 });
+                 }
+
+                 $('#notice_list').html(list);
+                 removeload();
+
+                 } else {
+                 removeload();
+                 my_alert('提示(' + data['code'] + ')', data['message']);
+                 return false;
+                 }
+                 //限制标题字数
+                 $('.tit').each(function () {
+                 var maxwidth = 10;
+                 if ($(this).text().length > maxwidth) {
+                 $(this).text($(this).text().substring(0, maxwidth));
+                 $(this).html($(this).html() + '……');
+                 }
+                 });
+                 //限制内容字数
+                 $('.cont').each(function () {
+                 var maxwidth = 30;
+                 if ($(this).text().length > maxwidth) {
+                 $(this).text($(this).text().substring(0, maxwidth));
+                 $(this).html($(this).html() + '……');
+                 }
+                 });
+                 $('#page').html(page(data.data.page_no, data.data.page_size, data.data.count));
+
+                 }
+                 });
+                 }*/
+                s_change_size(); //切换显示条数的函数
+                function s_change_size() {
+
+                    $('#size').append('<option value="15">15</option> <option value="25">25</option> <option value="50">50</option> <option value="100">100</option>')
+
+                    $('#size').change(function () {
+
+                        var opt = $('#size').val();
+                        if (opt == 15) {
+                            page_size = 15
+                            //getPageSearch(tit, datestar, dateend, 1, page_size);
+                        }
+                        if (opt == 25) {
+                            page_size = 25
+                            //getPageSearch(tit, datestar, dateend, 1, page_size);
+                        }
+                        if (opt == 50) {
+                            page_size = 50
+                            //getPageSearch(tit, datestar, dateend, 1, page_size);
+                        }
+                        if (opt == 100) {
+                            page_size = 100
+                            //getPageSearch(tit, datestar, dateend, 1, page_size);
+                        }
+                    })
+
+
+                }
+                var page_size = 15;
+                //getPageSearch(tit, datestar, dateend, 1, page_size);
+
+
+                // 标题搜索--------------
+
+
+                $('#btn-search').click(function () {
+                    tit = $('#student-keyword').val();
+                    //getPageSearch(tit, datestar, dateend, 1, page_size);
+                })
+
+                //回车键搜索
+                function mylist() {
+                    tit = $('#student-keyword').val();
+                    //getPageSearch(tit, datestar, dateend, 1, page_size);
+                }
+                key_list(mylist);
+
+
+                //分页
+                $(document).on('click', '#page ul li', function () {
+                    if ($(this).attr('num') == null) {
+                        return false;
+                    }
+                    num = $(this).attr('num');
+                    //获取列表
+                    //getPageSearch(tit, datestar, dateend, num, page_size);
+                });
+
+                /*//删除通知------------
+                 function notice_delete(id) {
+                 closepopup();
+                 $.ax({
+                 url: apiurl('notification/delete'),
+                 type: 'delete',
+                 dataType: 'json',
+                 data: {
+                 notification_id: id
+                 },
+                 success: function (ret_data) {
+
+                 removeload();
+                 if (ret_data['code'] != 20000) {
+                 my_alert('提示(' + ret_data['code'] + ')', '删除' + ret_data['message']);
+                 return false;
+                 } else {
+                 // my_alert('提示(' + ret_data['code'] + ')', '删除'+ret_data['message']);
+                 $('#notice_list').html('');
+                 getPageSearch(tit, datestar, dateend, 1, page_size);
+                 }
+                 }
+                 });
+                 }*/
+
+
+            </script>
+
+
+        </div><!-- /.main-content -->
+
+    </div><!-- /.main-container-inner -->
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div><!-- /.main-container -->
+
+
+<!-- inline scripts related to this page -->
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        var oTable1 = $('#sample-table-2').dataTable({
+            "aoColumns": [
+                {"bSortable": false},
+                null, null, null, null, null,
+                {"bSortable": false}
+            ]
+        });
+
+
+        $('table th input:checkbox').on('click', function () {
+            var that = this;
+            $(this).closest('table').find('tr > td:first-child input:checkbox')
+                .each(function () {
+                    this.checked = that.checked;
+                    $(this).closest('tr').toggleClass('selected');
+                });
+
+        });
+
+
+        $('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+        function tooltip_placement(context, source) {
+            var $source = $(source);
+            var $parent = $source.closest('table')
+            var off1 = $parent.offset();
+            var w1 = $parent.width();
+
+            var off2 = $source.offset();
+            var w2 = $source.width();
+
+            if (parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
+            return 'left';
+        }
+    })
+</script>
+
+</body>
+</html>
+
